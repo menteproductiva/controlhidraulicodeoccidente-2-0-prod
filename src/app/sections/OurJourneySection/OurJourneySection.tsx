@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -17,15 +18,21 @@ const InfiniteScrollList = () => {
       setVisibleMilestones((prevMilestones) => {
         const updatedMilestones = [...prevMilestones];
         const firstItem = updatedMilestones.shift(); // Remueve el primero
-        updatedMilestones.push(firstItem); // Lo añade al final
+        
+        // Verificamos que firstItem no sea undefined
+        if (firstItem) {
+          updatedMilestones.push(firstItem); // Lo añade al final si no es undefined
+        }
+        
         return updatedMilestones;
       });
     }, 3000); // Cambia cada 3 segundos
     return () => clearInterval(interval);
   }, []);
+  
 
   const itemVariants = {
-    initial: (direction) => ({
+    initial: (direction:any) => ({
       y: direction === "down" ? -100 : 100,
       opacity: 0,
     }),
@@ -39,7 +46,7 @@ const InfiniteScrollList = () => {
         duration: 0.8,  // Duración más controlada
       },
     },
-    exit: (direction) => ({
+    exit: (direction:any) => ({
       y: direction === "down" ? 100 : -100,
       opacity: 0,
       transition: {
