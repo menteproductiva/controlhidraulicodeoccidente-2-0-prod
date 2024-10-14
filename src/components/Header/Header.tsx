@@ -27,7 +27,7 @@ const options = [
   },
   {
     title: "Servicios",
-    href: "/Servicies"
+    href: "/Services"
   }
 ]
 

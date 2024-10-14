@@ -1,13 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-
 const products = [
-    { name: 'Bomba Hidráulica de Alta Presión', description: 'Ideal para aplicaciones industriales exigentes.' },
-    { name: 'Válvula de Control Proporcional', description: 'Precisión excepcional en el control de flujo hidráulico.' },
-    { name: 'Cilindro Hidráulico de Doble Efecto', description: 'Diseñado para soportar cargas pesadas y uso intensivo.' },
-    { name: 'Sistema de Filtración Avanzado', description: 'Mantiene la pureza del fluido hidráulico para un rendimiento óptimo.' },
-  ]
+  {
+    name: "Bomba Hidráulica de Alta Presión",
+    description: "Ideal para aplicaciones industriales exigentes.",
+    src: "/assets/products/bomba.jpg",
+  },
+  {
+    name: "Válvula de Control Proporcional",
+    description: "Precisión excepcional en el control de flujo hidráulico.",
+    src: "/assets/products/valvula.jpeg",
+  },
+  {
+    name: "Cilindro Hidráulico ",
+    description:
+      "Diseñado para soportar cargas pesadas y uso intensivo en cadenas de suministros.",
+    src: "/assets/products/cilindro.jpg",
+  },
+  {
+    name: "Sistema de Filtración Avanzado",
+    description:
+      "Mantiene la pureza del fluido hidráulico para un rendimiento óptimo.",
+    src: "/assets/products/sistema.jpeg",
+  },
+];
 
 const ProductSection = () => {
   return (
@@ -23,7 +41,7 @@ const ProductSection = () => {
               className="bg-white shadow-lg hover:shadow-xl p-6 rounded-lg transition duration-300"
             >
               <Image
-                src={`/product-${index + 1}.jpg`}
+                src={`${product.src}`}
                 alt={product.name}
                 width={300}
                 height={200}
@@ -33,9 +51,11 @@ const ProductSection = () => {
                 {product.name}
               </h3>
               <p className="mb-4 text-gray-600">{product.description}</p>
-              <button className="bg-[#2D3688] hover:bg-[#E5202D] px-4 py-2 rounded-full w-full text-white transition duration-300">
-                Ver Detalles
-              </button>
+              <Link href="/Products">
+                <button className="bg-[#2D3688] hover:bg-[#E5202D] px-4 py-2 rounded-full w-full text-white transition duration-300">
+                  Ver Detalles
+                </button>
+              </Link>
             </div>
           ))}
         </div>
