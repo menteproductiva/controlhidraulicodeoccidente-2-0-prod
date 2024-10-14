@@ -6,11 +6,11 @@ import ButtonNeubrutalism from "@/components/ButtonNeubratalism/ButtonNeubrutali
 
 const CallToAction = () => {
   return (
-    <section className="relative bg-white py-12">
+    <section className="relative bg-white py-20">
       <div className="top-0 left-0 absolute w-full h-1/4"></div>
       <div className="relative z-10 flex lg:flex-row flex-col justify-between items-center space-y-6 lg:space-y-0 mx-auto container">
         {/* Ajuste de la imagen */}
-        <div className="relative lg:-top-10 flex justify-center w-full lg:w-1/2">
+        <div className="relative lg:-top-0 flex justify-center w-full lg:w-1/2">
           <Image
             src="/assets/imgConoce_1.jpg"
             alt="Plano de Equipamiento Hidráulico"
@@ -27,7 +27,7 @@ const CallToAction = () => {
             Deja tus datos ahora y recibe una consulta gratuita sobre nuestros
             sistemas de equipamiento hidráulico.
           </p>
-          <Link href="#Services">
+          <Link href="/TechnicalSupport">
             <ButtonNeubrutalism textColor="red" colorHover="red">Explorar</ButtonNeubrutalism>
           </Link>
          

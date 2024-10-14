@@ -1,8 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { HoverButton } from "@/components/ButtonHover/ButtonHover";
-import DotExpandButton from "@/components/DotExpandButton/DotExpandButton";
-import { RightArrow } from "@/components/Icons/Icons";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
@@ -28,7 +25,7 @@ const AboutSection = () => {
               más exigentes de nuestros clientes en diversos sectores
               industriales.
             </p>
-            <Link href="/AboutUs">
+            <Link href="/Contact">
             <motion.button
               whileHover={{
                 scale: 1.1,
@@ -38,14 +35,14 @@ const AboutSection = () => {
               style={{
                 padding: "12px 25px",
                 outline: "none",
-                backgroundColor: "#333333",
+                backgroundColor: "#2D3688",
                 color: "#fff",
                 border: "none",
                 borderRadius: "30px",
                 cursor: "pointer",
               }}
             >
-              Conocenos
+              Conócenos
             </motion.button>
             </Link>
             

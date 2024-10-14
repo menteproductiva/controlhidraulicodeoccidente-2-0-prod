@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="md:flex justify-around">
           {/* Left logo + button */}
           <div>
-            <Image width={50} height={50} src="/assets/logo.png" alt="Hidrauilica"/>
+            <Image width={400} height={200} src="/assets/logo_controlHidraulico.png" alt="Hidrauilica"/>
           </div>
         
 
