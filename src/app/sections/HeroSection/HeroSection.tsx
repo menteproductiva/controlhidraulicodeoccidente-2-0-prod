@@ -7,8 +7,8 @@ interface HeroSectionProps {
   description: string;
   primaryActionText: string;
   primaryActionLink: string;
-  secondaryActionText: string;
-  secondaryActionLink: string;
+  secondaryActionText?: string;
+  secondaryActionLink?: string;
   imageSrc: string;
   imageAlt: string;
 }
@@ -43,12 +43,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 {primaryActionText}
               </a>
-              <a
-                href={secondaryActionLink}
-                className="inline-block bg-white hover:bg-gray-100 px-8 py-3 rounded-full w-full md:w-auto font-bold text-[#2D3688] transition duration-300"
-              >
-                {secondaryActionText}
-              </a>
+              {secondaryActionText && secondaryActionLink && (
+                <a
+                  href={secondaryActionLink}
+                  className="inline-block bg-white hover:bg-gray-100 px-8 py-3 rounded-full w-full md:w-auto font-bold text-[#2D3688] transition duration-300"
+                >
+                  {secondaryActionText}
+                </a>
+              )}
             </div>
           </div>
           <div className="md:w-1/2">

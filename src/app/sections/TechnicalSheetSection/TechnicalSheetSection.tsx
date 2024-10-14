@@ -117,7 +117,7 @@ const TechnicalSheetSection = () => {
                 </p>
               </div>
               <div className="bg-gray-50 px-6 py-3">
-                <a href="#" className="text-[#E5202D] hover:underline">
+                <a href="#" className="font-bold text-[#E5202D] hover:underline">
                   Descargar PDF
                 </a>
               </div>

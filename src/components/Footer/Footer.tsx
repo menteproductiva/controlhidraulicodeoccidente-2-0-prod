@@ -5,76 +5,93 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-[#2D3688] to-[#1A2056] py-12 text-white">
-      <div className="mx-auto px-4 container">
-        <div className="flex md:flex-row flex-col justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <Image
-              src="/logo-white.svg"
-              alt="Control Hidráulico de Occidente"
-              width={180}
-              height={60}
-            />
+    <div className="flex flex-col justify-center bg-[#133e76] py-8">
+      <div className="m-2 rounded-xl h-90">
+        {/* Menus */}
+        <div className="md:flex justify-around">
+          {/* Left logo + button */}
+          <div>
+            <Image width={50} height={50} src="/assets/logo.png" alt="Hidrauilica"/>
           </div>
-          <nav className="mb-6 md:mb-0">
-            <ul className="flex flex-wrap justify-center md:justify-start space-x-6">
-              <li>
-                <Link
-                  href="#productos"
-                  className="hover:text-[#E5202D] transition duration-300"
-                >
+        
+
+          {/* Menus */}
+          <div className="md:py-0">
+            <h4 className="mb-2 px-2 font-bold text-white">Explorar</h4>
+            <ul className="text-white">
+              <li className="hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+                <Link href="#">
+                  Nosotros
+                </Link>
+              </li>
+              <li className="hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+                <Link href="/Products">
                   Productos
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="#servicios"
-                  className="hover:text-[#E5202D] transition duration-300"
-                >
-                  Servicios
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#E5202D] transition duration-300"
-                >
-                  Proyectos
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#contacto"
-                  className="hover:text-[#E5202D] transition duration-300"
-                >
+              <li className="hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+                <Link href="/Contact">
                   Contacto
                 </Link>
               </li>
+              <li className="hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+                <Link href="/TechnicalSupport">
+                  Soporte Técnico
+                </Link>
+              </li>
             </ul>
-          </nav>
-          <div className="flex space-x-4">
-            <Link
-              href="#"
-              className="ml-1 text-blue-600 hover:text-blue-800 transition duration-300"
-            >
-              <FacebookIcon />
-            </Link>
-            <Link
-              href="#"
-              className="ml-1 text-blue-600 hover:text-blue-800 transition duration-300"
-            >
-              <TwitterIcon />
-            </Link>
+          </div>
+
+          <div className="py-5 md:py-0">
+            <h4 className="mb-2 px-2 font-bold text-white">Legal</h4>
+            <ul className="text-white">
+              <li className="hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+                <Link
+                  href="https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf"
+                  target="_blank"
+                >
+                  Términos y Condiciones
+                </Link>
+              </li>
+              <li className="hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+                <Link
+                  href="https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf"
+                  target="_blank"
+                >
+                  Política de Privacidad
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="py-5 md:py-0">
+            <h4 className="mb-2 px-2 font-bold text-white">Síguenos</h4>
+            <ul className="text-white">
+              <li className="flex flex-row items-center hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+                {/* <InstagramIcon  className="mr-1"/> */}
+                Instagram
+              </li>
+              <li className="flex flex-row items-center hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+                {/* <FacebookIcon className="mr-1"/> */}
+                Facebook
+              </li>
+              <li className="flex flex-row hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] px-2 py-2 border border-transparent rounded-md cursor-pointer">
+              {/* <WhatsappIcon className="mr-1"/> */}
+              Whatsapp
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="border-gray-700 mt-8 pt-8 border-t text-center">
-          <p className="text-gray-400 text-sm">
-             2024 Control Hidráulico de Occidente S.A. de C.V. Todos los
-            derechos reservados.
-          </p>
+        {/* below footer */}
+        <div className="flex lg:flex lg:flex-row flex-col-reverse lg:justify-between items-center lg:items-end md:px-32 lg:px-12 text-white text-xs lg:text-white">
+          <div>© 2024 Hidraulica, Todos los derechos Reservados</div>
+          <div className="md:block flex flex-col items-center">
+            <p>Powered by </p>{" "}
+            <p className="font-bold text-xl tracking-tighter">INNAVANTI</p>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

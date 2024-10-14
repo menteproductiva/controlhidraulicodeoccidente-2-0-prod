@@ -14,16 +14,29 @@ const options = [
     href: "/Contact"
   },
   {
-    title: "Soporte Tecnico",
+    title: "Soporte Técnico",
     href: "/TechnicalSupport"
+  },
+  {
+    title: "Nosotros",
+    href: "/AboutUs"
+  },
+  {
+    title: "Productos",
+    href: "/Products"
+  },
+  {
+    title: "Servicios",
+    href: "/Servicies"
   }
 ]
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  
   return (
-    <header className="top-0 right-0 left-0 z-50 fixed bg-gradient-to-br from-[#2D3688] to-[#1A2056] shadow-md">
+    <header className="top-0 right-0 left-0 z-50 fixed bg-[#133e76] bg-red shadow-md text-white">
       <div className="flex justify-between items-center mx-auto px-4 py-3 container">
         <Image src="/assets/logo_controlHidraulico.png" alt="Control Hidráulico de Occidente" width={180} height={60} />
         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
