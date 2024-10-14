@@ -7,12 +7,10 @@ const Page = () => {
     <>
       <HeroSection
         id="contacto"
-        title="Póngase en Contacto con Nosotros"
-        description="Estamos aquí para ayudarle. Si tiene preguntas o necesita asistencia, no dude en contactarnos. Nuestro equipo estará encantado de asistirle."
+        title="Contáctanos y resolvamos tus dudas"
+        description="Si tiene preguntas o necesita asistencia, no dude en contactarnos. Nuestro equipo estará encantado de asistirle."
         primaryActionText="Contáctenos"
         primaryActionLink="#contacto-form"
-        secondaryActionText="Ubicación"
-        secondaryActionLink="#ubicacion"
         imageSrc="/assets/heroHidraulica.jpeg" 
         imageAlt="Persona hablando por teléfono en oficina de soporte"
       />

@@ -1,13 +1,18 @@
+"use client";
+import { motion } from "framer-motion";
+import { HoverButton } from "@/components/ButtonHover/ButtonHover";
+import DotExpandButton from "@/components/DotExpandButton/DotExpandButton";
 import { RightArrow } from "@/components/Icons/Icons";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const AboutSection = () => {
   return (
     <section id="quienes-somos" className="bg-white py-16 md:py-24">
       <div className="mx-auto px-4 container">
         <div className="flex md:flex-row flex-col items-center">
-        <div className="md:w-1/2">
+          <div className="md:w-1/2">
             <h2 className="mb-6 font-light font-montserrat text-[#2D3688] text-3xl md:text-4xl">
               Quiénes Somos
             </h2>
@@ -23,13 +28,27 @@ const AboutSection = () => {
               más exigentes de nuestros clientes en diversos sectores
               industriales.
             </p>
-            <a
-              href="#servicios"
-              className="inline-flex items-center text-[#E5202D] hover:text-[#C41D27] transition duration-300"
+            <Link href="/AboutUs">
+            <motion.button
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "#d62ba3",
+              }}
+              transition={{ duration: 0.5, yoyo: Infinity }}
+              style={{
+                padding: "12px 25px",
+                outline: "none",
+                backgroundColor: "#333333",
+                color: "#fff",
+                border: "none",
+                borderRadius: "30px",
+                cursor: "pointer",
+              }}
             >
-              Descubre nuestros servicios
-              <RightArrow className="ml-2 w-5 h-5 text-[#E5202D]" />
-            </a>
+              Conocenos
+            </motion.button>
+            </Link>
+            
           </div>
           <div className="mb-8 md:mb-0 md:pl-16 md:w-1/2">
             <Image
@@ -40,7 +59,6 @@ const AboutSection = () => {
               className="shadow-lg rounded-lg"
             />
           </div>
-      
         </div>
       </div>
     </section>

@@ -31,7 +31,7 @@ const FaqSection = () => {
   return (
     <div className="bg-gray-100 py-16 md:py-24">
       <section className="mx-auto px-4 container">
-        <h2 className="mb-6 font-light font-montserrat text-[#2D3688] text-2xl">
+        <h2 className="mb-6 font-light font-montserrat text-[#2D3688] text-3xl">
           Preguntas Frecuentes
         </h2>
         <div className="space-y-4">
