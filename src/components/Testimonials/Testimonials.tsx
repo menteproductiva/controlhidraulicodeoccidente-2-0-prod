@@ -69,7 +69,7 @@ function Testimonial({
               </div>
             </div>
             <div className="md:bg-[left_18%_top] bg-[url('/images/pattern-quotes.svg')] bg-[length:19%] bg-no-repeat bg-top mx-auto mt-14 md:mt-0 md:ml-[11.5%] pt-6 md:pt-[4%] w-[86%] md:w-[45%] md:h-[45%] text-black text-center text-lg md:text-left md:text-[0.65rem] lg:text-[0.79rem] xl:text-base leading-6 lg:overflow-auto">
-              <q className="md:text-[2em] xl:leading-[2.725rem]">
+              <q className="md:text-[1.5em] xl:leading-[2.725rem]">
                 &nbsp;{data.testimonial}&nbsp;
               </q>
               <div className="md:flex gap-2 mt-4 md:mt-10 text-base md:text-[1.25em]">

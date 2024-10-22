@@ -1,7 +1,61 @@
+"use client";
 import { Mail, Phone, PinMap } from "@/components/Icons/Icons";
-import React from "react";
+import React, { useState } from "react";
+
+interface TypeData {
+  Nombre: string;
+  Correo: string;
+  Telefono: string;
+  Empresa: string;
+  Motivo: string;
+  Mensaje: string;
+}
 
 const ContactSection = () => {
+  const [infoSubmit, setInfoSubmit] = useState<TypeData>({
+    Nombre: "",
+    Correo: "",
+    Telefono: "",
+    Empresa: "",
+    Motivo: "",
+    Mensaje: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setInfoSubmit({
+      ...infoSubmit,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); 
+
+    try {
+      const response = await fetch("/api/contacto", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(infoSubmit),
+      });
+
+      const data = await response.json()
+      console.log(data,"data");
+      
+      
+
+      if (response.ok) {
+        console.log("Mensaje enviado correctamente");
+        setInfoSubmit({ Nombre: "", Correo: "", Telefono: "", Empresa: "",Motivo:"", Mensaje: "" });
+      } else {
+        console.log("Error al enviar el mensaje");
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
+
   return (
     <section
       id="contacto"
@@ -13,34 +67,48 @@ const ContactSection = () => {
         </h2>
         <div className="flex md:flex-row flex-col gap-8">
           <div className="md:w-1/2">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <input
                 type="text"
+                name="Nombre"
+                value={infoSubmit.Nombre}
+                onChange={handleChange}
                 placeholder="Nombre completo"
                 className="bg-white p-3 border rounded-lg w-full text-gray-800"
                 required
               />
               <input
                 type="email"
+                name="Correo"
+                value={infoSubmit.Correo}
+                onChange={handleChange}
                 placeholder="Correo electrónico"
                 className="bg-white p-3 border rounded-lg w-full text-gray-800"
                 required
               />
               <input
                 type="tel"
+                name="Telefono"
+                value={infoSubmit.Telefono}
+                onChange={handleChange}
                 placeholder="Teléfono"
                 className="bg-white p-3 border rounded-lg w-full text-gray-800"
                 required
               />
               <input
                 type="text"
+                name="Empresa"
+                value={infoSubmit.Empresa}
+                onChange={handleChange}
                 placeholder="Empresa o compañía"
                 className="bg-white p-3 border rounded-lg w-full text-gray-800"
                 required
               />
 
-              {/* Motivo de Contacto - Campo Opcional */}
               <select
+                name="Motivo"
+                value={infoSubmit.Motivo} // Añadir motivo si lo necesitas
+                onChange={handleChange}
                 className="bg-white p-3 border rounded-lg w-full text-gray-800"
                 aria-label="Motivo de contacto (opcional)"
               >
@@ -55,13 +123,15 @@ const ContactSection = () => {
               </select>
 
               <textarea
+                name="Mensaje"
+                value={infoSubmit.Mensaje}
+                onChange={handleChange}
                 placeholder="Mensaje"
                 rows={4}
                 className="bg-white p-3 border rounded-lg w-full text-gray-800"
                 required
               ></textarea>
               <button
-                type="submit"
                 className="bg-[#E5202D] hover:bg-[#C41D27] px-6 py-3 rounded-full w-full font-bold text-white transition duration-300"
               >
                 Enviar Mensaje

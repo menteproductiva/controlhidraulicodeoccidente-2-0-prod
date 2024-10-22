@@ -1,56 +1,55 @@
-import Image from 'next/image'
-import React from 'react'
-import { motion } from 'framer-motion'
-
+import React from "react";
+import ShimmerBorderCard from "@/components/ShimmerBorderCard/ShimmerBorderCard";
+const services = [
+  {
+    title: "Bombas Hidraulicas",
+    titleDescription: "Tiempo de mantenimiento",
+    description:
+      "Instalamos sistemas hidráulicos con precisión y eficiencia, garantizando un rendimiento óptimo y seguro para tus proyectos industriales.",
+    time: "De 2 días a 2 semanas. Depende del tamaño y la complejidad del sistema.",
+    buttonText: "SOLICITAR COTIZACIÓN",
+    href: "#",
+  },
+  {
+    title: "Cilindros Hidraulicos",
+    titleDescription: "Tiempo de mantenimiento",
+    description:
+      "Realizamos inspecciones periódicas para prevenir fallos, extender la vida útil de tus equipos y garantizar su eficiencia y seguridad.",
+    time: "De 4 horas a 2 días. Depende del tamaño y la complejidad del sistema.",
+    buttonText: "SOLICITAR COTIZACIÓN",
+    href: "#",
+  },
+  {
+    title: "Valvulas Hidraulicas",
+    titleDescription: "Tiempo de mantenimiento",
+    description:
+      "Reparamos fallos rápidamente, restaurando tus sistemas hidráulicos y minimizando tiempos de inactividad para asegurar su óptimo rendimiento.",
+    time: "De 1 a 5 días. Depende de la gravedad del fallo y la complejidad del sistema.",
+    buttonText: "SOLICITAR COTIZACIÓN",
+    href: "#",
+  },
+];
 
 const ProjectsServicesSection = () => {
-    return (
-        <section className="bg-gray-100 py-16 text-black">
-          <div className="mx-auto px-4 container">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="mb-8 font-light font-montserrat text-3xl text-center"
-            >
-              Projects of Hydraulic Engineering
-            </motion.h2>
-            <div className="gap-8 grid md:grid-cols-2">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Hydraulic project example"
-                  width={600}
-                  height={400}
-                  className="shadow-lg rounded-lg"
-                />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="flex flex-col justify-center"
-              >
-                <h3 className="mb-4 font-light font-montserrat text-2xl">Personalized Hydraulic Solutions</h3>
-                <p className="mb-6">
-                  We specialize in creating custom hydraulic solutions for large-scale projects. Our team of experts works closely with you to design and implement systems that meet your specific requirements.
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.05, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-[#2D3688] hover:bg-[#E5202D] px-6 py-2 rounded-full font-bold text-white transition duration-300 ease-in-out self-start"
-                >
-                  Request a Quote
-                </motion.button>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-    )
-}
+  return (
+    <section className="flex flex-col bg-[#2D3688] py-16">
+      <h2 className="mb-8 font-bold text-3xl text-center text-white">
+        Instalación y Mantenimiento de Sistemas Hidráulicos
+      </h2>
+      <div className="grid grid-cols-3 text-black">
+        {services.map((item) => (
+          <ShimmerBorderCard
+            title={item.title}
+            titleDescription={item.titleDescription}
+            description={item.description}
+            time={item.time}
+            buttonText={item.buttonText}
+            href="#"
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
 
-export default ProjectsServicesSection
+export default ProjectsServicesSection;
