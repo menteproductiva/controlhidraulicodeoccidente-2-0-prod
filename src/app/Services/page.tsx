@@ -51,7 +51,6 @@ const Page = () => {
     <div>
       <div className="bg-white">
         <TextParallaxContent
-          subheading="s"
           imgUrl="/assets/imgServices.jpg"
           heading="Soluciones Hidráulicas Integrales para Todas tus Necesidades"
         >
