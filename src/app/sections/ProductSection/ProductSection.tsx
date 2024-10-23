@@ -1,63 +1,64 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import { motion, useSpring } from "framer-motion";
+import CardCarousel from "@/components/CardCarousel/CardCarousel";
+
 
 const products = [
   {
-    name: "Bomba Hidráulica de Alta Presión",
+    title: "Bomba Hidráulica de Alta Presión",
     description: "Ideal para aplicaciones industriales exigentes.",
-    src: "/assets/products/bomba.jpg",
+    url: "/assets/products/bomba.jpg",
   },
   {
-    name: "Válvula de Control Proporcional",
+    title: "Válvula de Control Proporcional",
     description: "Precisión excepcional en el control de flujo hidráulico.",
-    src: "/assets/products/valvula.jpeg",
+    url: "/assets/products/valvula.jpeg",
   },
   {
-    name: "Cilindro Hidráulico ",
+    title: "Cilindro Hidráulico",
     description:
       "Diseñado para soportar cargas pesadas y uso intensivo en cadenas de suministros.",
-    src: "/assets/products/cilindro.jpg",
+    url: "/assets/products/cilindro.jpg",
   },
   {
-    name: "Sistema de Filtración Avanzado",
+    title: "Sistema de Filtración Avanzado",
     description:
       "Mantiene la pureza del fluido hidráulico para un rendimiento óptimo.",
-    src: "/assets/products/sistema.jpeg",
+    url: "/assets/products/sistema.jpeg",
   },
 ];
 
 const ProductSection = () => {
+  const x = useSpring(0.5);
+  const y = useSpring(0.5);
+
+  useEffect(() => {
+    x.set(1);
+  }, []);
+
   return (
     <section id="productos" className="bg-white py-16 md:py-24">
       <div className="mx-auto px-4 container">
         <h2 className="mb-12 font-light font-montserrat text-[#2D3688] text-3xl text-center md:text-4xl">
           Productos Destacados
         </h2>
-        <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-lg hover:shadow-xl p-6 rounded-lg transition duration-300"
-            >
-              <Image
-                src={`${product.src}`}
-                alt={product.name}
-                width={300}
-                height={200}
-                className="mb-4 rounded-lg"
-              />
-              <h3 className="mb-2 font-light font-montserrat text-[#2D3688] text-xl">
-                {product.name}
-              </h3>
-              <p className="mb-4 text-gray-600">{product.description}</p>
-              <Link href="/Products">
-                <button className="bg-[#2D3688] hover:bg-[#E5202D] px-4 py-2 rounded-full w-full text-white transition duration-300">
-                  Ver Detalles
-                </button>
-              </Link>
-            </div>
-          ))}
+        <div 
+        className="flex flex-col items-center w-full"
+        >
+          <CardCarousel items={products}/>
+        </div>
+        <div className="flex flex-row justify-center items-end mt-12">
+          <motion.div
+            className="flex justify-center items-center bg-[#2D3688] hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] p-6 rounded-lg w-1/5 h-10 text-white text-xl cursor-pointer"
+            style={{ scale: x }}
+          >
+            <Link href="/Products">
+              Ver más
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -16,14 +16,14 @@ const CallToActionAboutUs = () => {
             className="mb-4 font-['Montserrat'] font-light text-3xl md:text-4xl"
             {...fadeInUp}
           >
-            Discover More About Our Hydraulic Solutions
+           Descubre mas sobre nuestras soluciones
           </motion.h2>
           <motion.p
             className="mb-8 text-lg"
             {...fadeInUp}
             transition={{ delay: 0.2 }}
           >
-            Learn how our sister company, Empaques Chavoya, complements our hydraulic expertise with specialized sealing solutions.
+            Conoce nuestra empresa hermana, Empaques Chavoya, y complementa tu equipo hidraulico ahora.
           </motion.p>
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -33,7 +33,7 @@ const CallToActionAboutUs = () => {
               className="bg-[#E5202D] hover:bg-[#c51b27] px-8 py-3 text-lg text-white"
               onClick={() => window.open('https://www.chavoya.com', '_blank')}
             >
-              Visit Empaques Chavoya
+              Visita Empaques Chavoya
             </button>
           </motion.div>
         </div>

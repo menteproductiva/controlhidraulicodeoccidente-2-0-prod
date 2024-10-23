@@ -13,28 +13,28 @@ const OurValuesSection = () => {
   return (
     <section className="bg-white px-4 md:px-8 py-16">
       <motion.h2
-        className="mb-8 font-['Montserrat'] font-light text-[#2D3688] text-3xl text-center md:text-4xl"
+        className="mb-12 font-light font-montserrat text-[#2D3688] text-3xl text-center md:text-4xl"
         {...fadeInUp}
       >
-        Our Core Values
+        Nuestros Pilares
       </motion.h2>
       <div className="gap-8 grid grid-cols-1 md:grid-cols-3 mx-auto max-w-6xl">
         {[
           {
             icon: Check,
-            title: "Quality",
+            title: "Responsabilidad",
             description:
               "We ensure the highest standards in every product and service.",
           },
           {
             icon: Lightbulb,
-            title: "Innovation",
+            title: "Puntualidad",
             description:
               "Constantly pushing the boundaries of hydraulic technology.",
           },
           {
             icon: HeartHandshake,
-            title: "Customer Service",
+            title: "Compromiso",
             description:
               "Dedicated support and solutions tailored to your needs.",
           },
@@ -60,7 +60,6 @@ const OurValuesSection = () => {
             <h3 className="mb-2 font-['Montserrat'] font-light text-black text-center text-xl">
               {value.title}
             </h3>
-            <p className="text-black text-center">{value.description}</p>
           </motion.div>
         ))}
       </div>
