@@ -28,10 +28,9 @@ interface ProductsType {
 }
 
 export default function Page() {
-  const [selectedCategory, setSelectedCategory] = useState<{}>();
-  const [selectedProduct, setSelectedProduct] = useState<ProductsType | null>(
-    null
-  );
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<ProductsType | null>(null);
   const [activeTab, setActiveTab] = useState("Categoría");
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState<CategoriesType[]>([]);
@@ -39,6 +38,7 @@ export default function Page() {
   const [products, setProducts] = useState<ProductsType[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -75,14 +75,34 @@ export default function Page() {
     setSearchTerm(e.target.value);
   };
 
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter((cat) => cat !== category)
+        : [...prev, category]
+    );
+  };
+
+  const handleBrandChange = (brand: string) => {
+    setSelectedBrands((prev) =>
+      prev.includes(brand)
+        ? prev.filter((br) => br !== brand)
+        : [...prev, brand]
+    );
+  };
+
   const filteredProducts = products.filter((product) => {
-    if (activeTab === "Nombre" && searchTerm) {
-      return product.Nombre.toLowerCase().includes(searchTerm.toLowerCase());
-    }
-    if (selectedCategory) {
-      return product.Categoria === selectedCategory;
-    }
-    return true;
+    const matchesSearch = searchTerm
+      ? product.Nombre.toLowerCase().includes(searchTerm.toLowerCase())
+      : true;
+    const matchesCategory = selectedCategories.length
+      ? selectedCategories.includes(product.Categoria)
+      : true;
+    const matchesBrand = selectedBrands.length
+      ? selectedBrands.includes(product.Marca)
+      : true;
+
+    return matchesSearch && matchesCategory && matchesBrand;
   });
 
   return (
@@ -121,7 +141,7 @@ export default function Page() {
                       {loading
                         ? Array(8)
                             .fill(0)
-                            .map((category, index) => (
+                            .map((_, index) => (
                               <div
                                 key={index}
                                 className="flex items-center space-x-2"
@@ -130,21 +150,18 @@ export default function Page() {
                                 <label>Cargando...</label>
                               </div>
                             ))
-                        : categories.map((industry, index) => (
+                        : categories.map((category, index) => (
                             <div
                               key={index}
                               className="flex items-center space-x-2"
                             >
                               <input
                                 type="checkbox"
-                                id={`industry-${industry.Nombre.toLowerCase()}`}
+                                checked={selectedCategories.includes(category.Nombre)}
+                                onChange={() => handleCategoryChange(category.Nombre)}
                                 className="rounded"
                               />
-                              <label
-                                htmlFor={`industry-${industry.Nombre.toLowerCase()}`}
-                              >
-                                {industry.Nombre}
-                              </label>
+                              <label>{category.Nombre}</label>
                             </div>
                           ))}
                     </div>
@@ -154,7 +171,7 @@ export default function Page() {
                       {loading
                         ? Array(15)
                             .fill(0)
-                            .map((category, index) => (
+                            .map((_, index) => (
                               <div
                                 key={index}
                                 className="flex items-center space-x-2"
@@ -170,20 +187,11 @@ export default function Page() {
                             >
                               <input
                                 type="checkbox"
-                                id={`brand-${brand.Nombre.toLowerCase().replace(
-                                  " ",
-                                  "-"
-                                )}`}
+                                checked={selectedBrands.includes(brand.Nombre)}
+                                onChange={() => handleBrandChange(brand.Nombre)}
                                 className="rounded"
                               />
-                              <label
-                                htmlFor={`brand-${brand.Nombre.toLowerCase().replace(
-                                  " ",
-                                  "-"
-                                )}`}
-                              >
-                                {brand.Nombre}
-                              </label>
+                              <label>{brand.Nombre}</label>
                             </div>
                           ))}
                     </div>
@@ -193,8 +201,8 @@ export default function Page() {
                       type="text"
                       placeholder="Buscar por nombre"
                       className="p-2 border rounded w-full"
-                      value={searchTerm} 
-                      onChange={handleSearch} 
+                      value={searchTerm}
+                      onChange={handleSearch}
                     />
                   )}
                 </div>
@@ -206,242 +214,66 @@ export default function Page() {
                   {loading
                     ? Array(15)
                         .fill(0)
-                        .map((category, index) => (
+                        .map((_, index) => (
                           <div
                             key={index}
                             className="bg-white shadow-lg p-4 rounded-lg animate-pulse cursor-pointer"
                           >
-                            {/* Imagen del producto */}
-                            <div className="mx-auto mb-4"></div>
-
-                            {/* Marca y nombre del producto */}
-                            <p className="mb-1 text-purple-500 text-sm"></p>
-                            <h3 className="mb-2 font-bold text-gray-900 text-xl"></h3>
-                            <div className="mb-4 font-semibold text-green-500 text-sm">
-                              ----
-                            </div>
-                            <a
-                              href={`https://wa.me/1234567890`}
-                              className="block bg-green-500 hover:bg-green-600 py-2 rounded-lg w-full font-bold text-center text-white transition-colors"
-                            >
-                              <div className="flex justify-center items-center">
-                                <span className="mr-2">---</span>
-                              </div>
-                            </a>
-                            <a
-                              href="#"
-                              className="block mt-4 font-bold text-blue-600 text-center hover:underline"
-                            >
-                              ----
-                            </a>
+                            {/* Loading State */}
                           </div>
                         ))
-                    : filteredProducts
-                        // .filter(
-                        //   (product) =>
-                        //     !selectedCategory ||
-                        //     product.Categoria === selectedCategory
-                        // )
-                        .map((product, index) => (
+                    : filteredProducts.map((product, index) => (
+                        <motion.div
+                          key={index}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="bg-white shadow-lg p-4 rounded-lg cursor-pointer"
+                          onClick={() => setSelectedProduct(product)}
+                        >
+                          {/* Product Details */}
+                          <Image
+                            src={`${product.Imagen}`}
+                            alt={product.Nombre}
+                            width={200}
+                            height={200}
+                            className="mx-auto mb-4"
+                          />
+                          <p className="mb-1 text-purple-500 text-sm">
+                            {product.Marca}
+                          </p>
+                          <h3 className="mb-2 font-bold text-gray-900 text-xl">
+                            {product.Nombre}
+                          </h3>
                           <motion.div
-                            key={index}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="bg-white shadow-lg p-4 rounded-lg cursor-pointer"
-                            onClick={() => setSelectedProduct(product)}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className={`text-sm font-semibold mb-4 ${
+                              product.id_page
+                                ? "text-green-500"
+                                : "text-red-500"
+                            }`}
                           >
-                            {/* Imagen del producto */}
-                            <Image
-                              src={`${product.Imagen}`} // Reemplaza con la URL de la imagen del producto
-                              alt={product.Nombre}
-                              width={200}
-                              height={200}
-                              className="mx-auto mb-4"
-                            />
-
-                            {/* Marca y nombre del producto */}
-                            <p className="mb-1 text-purple-500 text-sm">
-                              {product.Marca}
-                            </p>
-                            <h3 className="mb-2 font-bold text-gray-900 text-xl">
-                              {product.Nombre}
-                            </h3>
-                            <motion.div
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              className={`text-sm font-semibold mb-4 ${
-                                product.id_page
-                                  ? "text-green-500"
-                                  : "text-red-500"
-                              }`}
-                            >
-                              {product.id_page ? "In Stock" : "Out of Stock"}
-                            </motion.div>
-                            <a
-                              href={`https://wa.me/1234567890`} // Reemplaza con el número de WhatsApp
-                              className="block bg-green-500 hover:bg-green-600 py-2 rounded-lg w-full font-bold text-center text-white transition-colors"
-                            >
-                              <div className="flex justify-center items-center">
-                                <span className="mr-2">COTIZAR</span>
-                                <FaWhatsapp />
-                              </div>
-                            </a>
-                            <a
-                              href="#"
-                              className="block mt-4 font-bold text-blue-600 text-center hover:underline"
-                            >
-                              VER DETALLE
-                            </a>
+                            {product.id_page ? "In Stock" : "Out of Stock"}
                           </motion.div>
-                        ))}
+                          <a
+                            href={`https://wa.me/1234567890`}
+                            className="block bg-green-500 hover:bg-green-600 py-2 rounded-lg w-full font-bold text-center text-white transition-colors"
+                          >
+                            <div className="flex justify-center items-center">
+                              <span className="mr-2">COTIZAR</span>
+                              <FaWhatsapp />
+                            </div>
+                          </a>
+                        </motion.div>
+                      ))}
                 </div>
               </div>
             </div>
           </section>
         </TextParallaxContent>
+        <ContactSection />
+        <CallToActionAboutUs />
       </div>
-
-      {/* Product Sheet Modal */}
-      {selectedProduct && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 p-4"
-        >
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="bg-white p-6 rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto"
-          >
-            <h2
-              className="mb-4 font-light text-2xl"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
-            >
-              {selectedProduct.Nombre}
-            </h2>
-            <div className="gap-6 grid md:grid-cols-2">
-              <div>
-                <Image
-                  src={`${selectedProduct.Imagen}`}
-                  alt={selectedProduct.Nombre}
-                  width={400}
-                  height={400}
-                  className="rounded-lg"
-                />
-              </div>
-              <div>
-                <p
-                  className="mb-4 text-lg"
-                  style={{ fontFamily: "Verdana, sans-serif" }}
-                >
-                  Technical Description: {selectedProduct.Descripcion}
-                </p>
-                <table className="mb-4 w-full">
-                  <tbody>
-                    <tr>
-                      <td className="font-semibold">Dimensions:</td>
-                      <td>{selectedProduct.Dimensiones}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold">Weight:</td>
-                      <td>{selectedProduct.Peso}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold">Power:</td>
-                      <td>120V / 60Hz</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p
-                  className="mb-4 font-semibold text-lg"
-                  style={{ fontFamily: "Verdana, sans-serif" }}
-                >
-                  Price: ${selectedProduct.Precio.toFixed(2)}
-                </p>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center bg-[#2D3688] mb-4 px-4 py-2 rounded-full text-white cursor-pointer"
-                >
-                  {/* <Download className="mr-2" /> */}
-                  Download Technical Sheet
-                </motion.div>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-[#E5202D] mb-4 px-6 py-3 rounded-full w-full font-semibold text-lg text-white"
-                >
-                  Request a Quote
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex justify-center items-center bg-green-500 px-6 py-3 rounded-full w-full font-semibold text-lg text-white"
-                >
-                  {/* <WhatsApp className="mr-2" /> */}
-                  Contact via WhatsApp
-                </motion.button>
-              </div>
-            </div>
-            <button
-              className="top-4 right-4 absolute text-2xl"
-              onClick={() => setSelectedProduct(null)}
-            >
-              &times;
-            </button>
-          </motion.div>
-        </motion.div>
-      )}
-
-      <section className="bg-white px-4 md:px-8 lg:px-16 py-12 text-black">
-        <h2
-          className="mb-8 font-light text-3xl text-center md:text-4xl"
-          style={{ fontFamily: "Montserrat, sans-serif" }}
-        >
-          Como comprar
-        </h2>
-        <div className="flex flex-wrap justify-center gap-8 mb-8">
-          {[
-            "Seleccionar producto",
-            "Cotizar por Whatsapp",
-            "Conversamos sobre lo que se requiere",
-            "Envío de cotización",
-            "Confirmación de envío",
-            "Recepción y/o entrega del producto",
-          ].map((step, index) => (
-            <motion.div
-              key={step}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="flex flex-col items-center"
-            >
-              <div className="flex justify-center items-center bg-[#2D3688] mb-2 rounded-full w-16 h-16 font-bold text-2xl text-white">
-                {index + 1}
-              </div>
-              <p
-                className="text-center text-lg"
-                style={{ fontFamily: "Verdana, sans-serif" }}
-              >
-                {step}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-        <div className="text-center">
-          <motion.button
-            whileHover={{ scale: 1.05, backgroundColor: "#E5202D" }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-white px-8 py-3 rounded-full font-semibold text-[#2D3688] text-lg"
-            style={{ fontFamily: "Verdana, sans-serif" }}
-          >
-            Contact Us for More Information
-          </motion.button>
-        </div>
-      </section>
-      <CallToActionAboutUs />
-      <ContactSection />
     </div>
   );
 }
