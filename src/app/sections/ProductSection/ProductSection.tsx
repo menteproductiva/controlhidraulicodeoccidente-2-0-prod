@@ -1,5 +1,4 @@
 "use client"
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { motion, useSpring } from "framer-motion";
@@ -52,7 +51,7 @@ const ProductSection = () => {
         </div>
         <div className="flex flex-row justify-center items-end mt-12">
           <motion.div
-            className="flex justify-center items-center bg-[#2D3688] hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] p-6 rounded-lg w-1/5 h-10 text-white text-xl cursor-pointer"
+            className="flex justify-center items-center bg-[#2D3688] hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] p-6 rounded-lg w-1/5 h-10 text-white text-xl animate-bounce cursor-pointer"
             style={{ scale: x }}
           >
             <Link href="/Products">

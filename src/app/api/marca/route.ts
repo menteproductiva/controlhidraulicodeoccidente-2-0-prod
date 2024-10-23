@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET(){
     try {
 
-        const response = await fetch(`${process.env.LOCAL}/Marca`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/Marca`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

@@ -5,7 +5,7 @@ export async function POST(request: Request) {
       console.log(body,"body");
       
   
-      const response = await fetch(`${process.env.LOCAL}/Contacto`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/Contacto`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
