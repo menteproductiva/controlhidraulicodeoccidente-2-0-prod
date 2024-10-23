@@ -60,6 +60,11 @@ const TechnicalSheetSection = () => {
     return matchesCategory && matchesSearchTerm;
   });
 
+  const clearFilters = () => {
+    setSelectedCategory("Todos");
+    setSearchTerm("");
+  };
+
   return (
     <div className="bg-[#2D3688] mt-10 py-16 md:py-24">
       {/* Technical Documentation Section */}
@@ -69,7 +74,7 @@ const TechnicalSheetSection = () => {
             Documentación Técnica
           </h2>
           <div className="flex flex-row justify-evenly items-center w-2/5">
-            <button className="bg-[#E5202D] hover:bg-white p-2 rounded-lg hover:text-black">
+            <button onClick={clearFilters} className="bg-[#E5202D] hover:bg-white p-2 rounded-lg hover:text-black">
               Limpiar Filtros
             </button>
             <input
