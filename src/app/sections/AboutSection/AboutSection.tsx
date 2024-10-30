@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import AnimatedLogo from "@/components/AnimatedLogo/AnimatedLogo";
 
 const AboutSection = () => {
   return (
@@ -26,35 +27,28 @@ const AboutSection = () => {
               industriales.
             </p>
             <Link href="/Contact">
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                backgroundColor: "#d62ba3",
-              }}
-              transition={{ duration: 0.5, yoyo: Infinity }}
-              style={{
-                padding: "12px 25px",
-                outline: "none",
-                backgroundColor: "#2D3688",
-                color: "#fff",
-                border: "none",
-                borderRadius: "30px",
-                cursor: "pointer",
-              }}
-            >
-              Conócenos
-            </motion.button>
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "#d62ba3",
+                }}
+                transition={{ duration: 0.5, yoyo: Infinity }}
+                style={{
+                  padding: "12px 25px",
+                  outline: "none",
+                  backgroundColor: "#2D3688",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "30px",
+                  cursor: "pointer",
+                }}
+              >
+                Conócenos
+              </motion.button>
             </Link>
-            
           </div>
           <div className="mb-8 md:mb-0 md:pl-16 md:w-1/2">
-            <Image
-              src="/assets/heroHidraulica.jpeg"
-              alt="Sobre nosotros"
-              width={500}
-              height={300}
-              className="shadow-lg rounded-lg"
-            />
+            <AnimatedLogo className="mx-auto my-auto p-10 w-96 h-96 object-contain" />
           </div>
         </div>
       </div>
