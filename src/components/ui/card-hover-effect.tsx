@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { useState } from "react";
 
 export const HoverEffect = ({
@@ -33,7 +32,7 @@ export const HoverEffect = ({
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="block absolute inset-0 bg-[#2D3688] dark:bg-slate-800/[0.8] rounded-3xl w-full h-full"
+                className="block absolute inset-0 bg-[#9EA3C8] rounded-3xl w-full h-full"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{

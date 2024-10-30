@@ -9,6 +9,8 @@ import Link from "next/link";
 import DistributeBrandsHomeSection from "./sections/DistributeBrandsHomeSection/DistributeBrandsHomeSection";
 import TestimonialsHomeSection from "./sections/TestimonialsHomeSection/TestimonialsHomeSection";
 import { BannerHomeSection } from "./sections/BannerHomeSection/BannerHomeSection";
+import TestimonialSection from "./sections/TestimonialSection/TestimonialSection";
+import ChavoyaBannerSection from "./sections/ChavoyaBannerSection/ChavoyaBannerSection";
 
 const images = [
   "/assets/heroSlider/imgHero_1.jpg",
@@ -39,9 +41,13 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <ProductSection />
-      <DistributeBrandsHomeSection />
-      <TestimonialsHomeSection />
-      <BannerHomeSection />
+      {/* <DistributeBrandsHomeSection /> */}
+      {/* <TestimonialsHomeSection /> */}
+      {/* <BannerHomeSection /> */}
+      <TestimonialSection />
+      <div>
+        <ChavoyaBannerSection />
+      </div>
       <ContactSection />
     </div>
   );
