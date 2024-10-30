@@ -32,12 +32,12 @@ const DiagnosticsServicesSection = () => {
   return (
     <section className="bg-gray-100 py-16 text-black">
       <div className="flex flex-col justify-center items-center mx-auto px-4 container">
-        <div className="flex flex-col bg-[#2D3688] mb-3 pt-3 pb-1 w-full">
+        <div className="flex flex-col mb-3 pt-3 pb-1 w-full">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-8 text-3xl text-center text-white"
+            className="mb-8 text-[#2D3688] text-3xl text-center"
           >
             Otros Servicios
           </motion.h2>

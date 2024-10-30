@@ -45,7 +45,7 @@ const reverseScrollVariants = {
 
 export default function ScrollingLogos() {
   return (
-    <div className="bg-gray-100 py-10 w-full overflow-hidden">
+    <div className="bg-white py-10 w-full overflow-hidden">
       {/* Fila superior: logos moviéndose de izquierda a derecha */}
       <motion.div
         className="flex items-center space-x-6 w-full"

@@ -40,13 +40,10 @@ const CardCarousel = ({items} :any) => {
   };
 
   return (
-    <section className="bg-gray-100" ref={ref}>
-      <div className="relative p-4 overflow-hidden">
+    <section className="flex bg-white w-full" ref={ref}>
+      <div className="relative p-1 overflow-hidden">
         {/* CARDS */}
-        <div className="mx-auto max-w-6xl">
-          <p className="mb-4 font-medium text-2xl text-black">
-            Conoce. <span className="font-bold text-black">Nuestros productos.</span>
-          </p>
+        <div className="mx-auto w-full">
           <motion.div
             animate={{
               x: offset,
@@ -66,7 +63,7 @@ const CardCarousel = ({items} :any) => {
             animate={{
               x: CAN_SHIFT_LEFT ? "0%" : "-100%",
             }}
-            className="top-[60%] left-0 z-30 absolute bg-slate-100/30 backdrop-blur-sm p-3 pl-2 hover:pl-3 rounded-r-xl text-4xl text-white transition-[padding]"
+            className="top-[60%] left-0 z-30 absolute backdrop-blur-sm p-3 pl-2 hover:pl-3 rounded-r-xl text-4xl text-white transition-[padding]"
             onClick={shiftLeft}
           >
             <LeftArrow className="w-10"/>
@@ -76,7 +73,7 @@ const CardCarousel = ({items} :any) => {
             animate={{
               x: CAN_SHIFT_RIGHT ? "0%" : "100%",
             }}
-            className="top-[60%] right-0 z-30 absolute bg-slate-100/30 backdrop-blur-sm p-3 pr-2 hover:pr-3 rounded-l-xl text-4xl text-white transition-[padding]"
+            className="top-[60%] right-0 z-30 absolute backdrop-blur-sm p-3 pr-2 hover:pr-3 rounded-l-xl text-4xl text-white transition-[padding]"
             onClick={shiftRight}
           >
             <RightArrow className="w-10"/>
