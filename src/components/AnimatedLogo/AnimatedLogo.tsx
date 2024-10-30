@@ -32,7 +32,7 @@ const AnimatedLogo = ({ className = "" }) => {
         id="red-sphere"
         fill="#FF1626"
         stroke="#FF1626"
-        stroke-width="1"
+        strokeWidth="1"
         d="M21,7.1 a 1.03,1 0 0,0 0,24.4 a 1,1 0 0,0 0,-24.4 m 0.9,1.9 l 4,6.25 l -8.1,0 z"
       />
       {/* Felcha */}
@@ -42,7 +42,7 @@ const AnimatedLogo = ({ className = "" }) => {
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, amount: 0.9 }}
         id="Arrow"
-        stroke-width="1.6"
+        strokeWidth="1.6"
         d="M10,30.4 L35.8,7.1 L34.6,5.8 L39.6,3.9 L37.0,8.5 L35.8,7.1 L37.8,5.1"
       />
       {/* Letra C */}
@@ -52,7 +52,7 @@ const AnimatedLogo = ({ className = "" }) => {
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, amount: 0.5 }}
         id="letra-C"
-        stroke-width="3.6"
+        strokeWidth="3.6"
         d="M28.7,2.9 h-12 a 1,1.25 0 0,0 0,32 h12 h-12 a 1,1.1 0 0,1 0,-32"
       />
       {/* Texto H-O */}
@@ -62,7 +62,7 @@ const AnimatedLogo = ({ className = "" }) => {
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, amount: 0.7 }}
         id="letra-H"
-        stroke-width="1.3"
+        strokeWidth="1.3"
         d="M33.4,26.8 V 36.8 M39.5,26.8 V 36.8 M32.8,31.6 H 40.1 M46.2,27.2 a 1,1.25 0 0,0 0,9.2 a 1,1.25 0 0,0 0,-9.2"
       />
     </svg>
