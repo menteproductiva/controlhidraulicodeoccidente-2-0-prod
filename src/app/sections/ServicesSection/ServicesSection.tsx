@@ -15,7 +15,7 @@ const ServicesSection = () => {
   return (
     <section id="servicios" className="bg-gray-100 py-16 md:py-12">
       <div className="mx-auto px-4 container">
-        <h2 className="mb-2 font-light font-montserrat text-[#2D3688] text-3xl text-center md:text-4xl">
+        <h2 className="mb-2 font-light font-montserrat text-[#E5202D] text-3xl text-center md:text-4xl">
           Nuestros Servicios
         </h2>
         <HoverEffect items={services} />

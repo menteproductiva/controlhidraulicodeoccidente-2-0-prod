@@ -76,14 +76,14 @@ const TechnicalSheetSection = () => {
           <div className="flex flex-row justify-evenly items-center space-x-2 w-full md:w-2/5">
             <button
               onClick={clearFilters}
-              className="bg-[#E5202D] hover:bg-white p-1 md:p-2 rounded-lg hover:text-black"
+              className="bg-[#E5202D] hover:bg-white p-1 md:p-2 rounded-lg font-bold hover:text-black"
             >
               Limpiar Filtros
             </button>
             <input
               type="text"
               placeholder="Buscar por nombre"
-              className="p-2 border rounded w-1/2 md:w-1/3 lg:w-1/4 h-3/5 text-black"
+              className="p-2 border rounded w-1/2 md:w-1/3 lg:w-1/2 h-3/5 text-black"
               value={searchTerm} // Valor del input controlado por el estado
               onChange={(e) => setSearchTerm(e.target.value)} // Actualizamos el término de búsqueda
             />

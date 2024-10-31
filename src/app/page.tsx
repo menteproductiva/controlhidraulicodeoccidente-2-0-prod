@@ -33,17 +33,12 @@ export default function Home() {
               Conócenos
             </ButtonNeubrutalism>
           </Link>
-          {/* <ButtonHover>Conócenos →</ButtonHover> */}
         </div>
       </ImagesSlider>
-
       <CallToAction />
       <AboutSection />
       <ServicesSection />
       <ProductSection />
-      {/* <DistributeBrandsHomeSection /> */}
-      {/* <TestimonialsHomeSection /> */}
-      {/* <BannerHomeSection /> */}
       <TestimonialSection />
       <div>
         <ChavoyaBannerSection />

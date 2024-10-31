@@ -6,6 +6,8 @@ import OurPartnetsSection from "../sections/OurPartnetsSection/OurPartnetsSectio
 import TextParallaxContent from "@/components/TextParallaxContent/TextParallaxContext";
 import Image from "next/image";
 import { BannerHomeSection } from "../sections/BannerHomeSection/BannerHomeSection";
+import ChavoyaBannerSection from "../sections/ChavoyaBannerSection/ChavoyaBannerSection";
+import AnimatedLogo from "@/components/AnimatedLogo/AnimatedLogo";
 
 const Page = () => {
   return (
@@ -16,13 +18,13 @@ const Page = () => {
           heading="Quiénes Somos"
           subheading="Qué Nos Impulsa"
         >
-          <div className="flex md:flex-row flex-col gap-8 bg-white mx-auto px-4 pt-12 pb-24 max-w-5xl">
-            <div className="flex flex-col mr-5">
-              <h2 className="col-span-1 md:col-span-4 font-bold text-[#2D3688] text-3xl">
+          <div className="flex md:flex-row flex-col gap-16 bg-white mx-auto pt-12 pb-24 max-w-5xl">
+            <div className="flex flex-col mr-5 w-full">
+              <h2 className="col-span-1 md:col-span-8 font-bold text-[#2D3688] text-3xl">
                 Descubre Nuestra Trayectoria y Valores
               </h2>
-              <div className="bg-zinc-500 mt-5 p-3 rounded-lg">
-                <Image src="/assets/logo_controlHidraulico.png" width={400} height={400} alt="Logo"/>
+              <div className="bg-white mt-5 p-3 rounded-lg">
+                <AnimatedLogo className="mx-auto my-auto p-10 w-96 h-96 object-contain" />
               </div>
             </div>
 
@@ -50,7 +52,11 @@ const Page = () => {
       <OurValuesSection />
       {/* <InfiniteScrollList /> */}
       <OurPartnetsSection />
-      <BannerHomeSection/>
+      {/* <BannerHomeSection/>
+      < */}
+      <div>
+        <ChavoyaBannerSection/>
+      </div>
     </div>
   );
 };
