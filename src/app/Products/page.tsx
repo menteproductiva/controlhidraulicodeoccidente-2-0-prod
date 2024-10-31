@@ -251,16 +251,18 @@ export default function Page() {
                           <h3 className="mb-2 font-bold text-gray-900 text-xl">
                             {product.Nombre}
                           </h3>
-                          <a
-                            target="_blank"
-                            href={`https://wa.me/1234567890`}
-                            className="flex flex-col bg-green-500 hover:bg-green-600 py-2 rounded-lg w-1/2 font-bold text-center text-white transition-colors"
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="mr-2">COTIZAR</span>
-                              <FaWhatsapp />
-                            </div>
-                          </a>
+                          <div className="flex flex-row justify-center items-center w-full">
+                            <a
+                              target="_blank"
+                              href={`https://wa.me/1234567890`}
+                              className="flex flex-col bg-green-500 hover:bg-green-600 py-2 rounded-lg w-1/2 font-bold text-center text-white transition-colors"
+                            >
+                              <div className="flex justify-center items-center">
+                                <span className="mr-2">COTIZAR</span>
+                                <FaWhatsapp />
+                              </div>
+                            </a>
+                          </div>
                         </motion.div>
                       ))}
                 </div>
@@ -352,9 +354,8 @@ export default function Page() {
             </div>
           </section>
         </TextParallaxContent>
-        <ChavoyaBannerSection/>
+        <ChavoyaBannerSection />
         <ContactSection />
-
       </div>
     </div>
   );

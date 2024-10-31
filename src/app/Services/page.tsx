@@ -219,7 +219,8 @@ const Page = () => {
       <div className="bg-white">
         <TextParallaxContent
           imgUrl="/assets/imgServices.jpg"
-          heading="Soluciones Hidráulicas Integrales para Todas tus Necesidades"
+          heading="Soluciones Hidráulicas "
+          subheading="Integrales para todas tus Necesidades"
         >
           <section className="bg-gray-100 py-12">
             <h2 className="mb-8 font-bold text-3xl text-center text-gray-800">

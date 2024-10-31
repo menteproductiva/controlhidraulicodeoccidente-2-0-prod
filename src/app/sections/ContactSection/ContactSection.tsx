@@ -157,8 +157,8 @@ const ContactSection = () => {
               </h3>
               <div className="space-y-4">
                 <p className="flex items-center">
-                <FiMapPin className="mr-2 w-8 h-8 text-white" />
-                Av. Cristóbal Colón 1022,Moderna 44190 Guadalajara, Jalisco
+                  <FiMapPin className="mr-2 w-8 h-8 text-white" />
+                  Av. Cristóbal Colón 1022,Moderna 44190 Guadalajara, Jalisco
                 </p>
                 <p className="flex items-center">
                   <MdOutlineLocalPhone className="mr-2 w-8 h-8" />
@@ -173,9 +173,13 @@ const ContactSection = () => {
             <div className="rounded-lg h-64 overflow-hidden">
               <iframe
                 className="border-none w-full h-full"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d238911.60514654763!2d-103.353728!3d20.66983!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b2010dae4e8b%3A0xe0fef6d4bba04971!2sAv.%20Crist%C3%B3bal%20Col%C3%B3n%201022%2C%20Moderna%2C%2044190%20Guadalajara%2C%20Jal.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2sus!4v1730220646869!5m2!1ses-419!2sus&z=16"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4919.048913003148!2d-103.35655841441127!3d20.660391683368314!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b2010dae4e8b%3A0xe0fef6d4bba04971!2sAv.%20Crist%C3%B3bal%20Col%C3%B3n%201022%2C%20Moderna%2C%2044190%20Guadalajara%2C%20Jal.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2sus!4v1730389408223!5m2!1ses-419!2sus"
+                width="600"
+                height="450"
+                // style="border:0;"
+                // allowfullscreen=""
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                // referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
