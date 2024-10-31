@@ -41,7 +41,7 @@ const OurValuesSection = () => {
         ].map((value, index) => (
           <motion.div
             key={index}
-            className="bg-white shadow-lg p-6 rounded-lg"
+            className="bg-[#F3F4F6] shadow-lg p-6 rounded-lg"
             whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
             initial="initial"
             whileInView="animate"
@@ -57,7 +57,7 @@ const OurValuesSection = () => {
             >
               <value.icon size={64} />
             </motion.div>
-            <h3 className="mb-2 font-['Montserrat'] font-light text-black text-center text-xl">
+            <h3 className="mb-2 font-light text-black text-center text-xl">
               {value.title}
             </h3>
           </motion.div>

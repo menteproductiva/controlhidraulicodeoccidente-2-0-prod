@@ -11,7 +11,7 @@ const AboutSection = () => {
       <div className="mx-auto px-4 container">
         <div className="flex md:flex-row flex-col items-center">
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h2 className="mb-4 font-light font-montserrat text-[#2D3688] text-2xl md:text-4xl">
+            <h2 className="mb-4 font-light font-montserrat text-[#E5202D] text-2xl md:text-4xl">
               Quiénes Somos
             </h2>
             <p className="mb-4 text-base text-gray-700 md:text-lg">

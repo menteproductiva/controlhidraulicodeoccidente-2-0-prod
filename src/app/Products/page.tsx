@@ -117,7 +117,7 @@ export default function Page() {
           subheading="Para Optimizar tus Operaciones Industriales"
         >
           <section className="bg-gray-100 px-4 md:px-8 lg:px-16 py-12">
-            <h2 className="mb-8 font-light text-[#2D3688] text-3xl text-center md:text-4xl">
+            <h2 className="mb-8 font-light text-[#E5202D] text-3xl text-center md:text-4xl">
               Motores Hidráulicos
             </h2>
             <div className="flex md:flex-row flex-col gap-8">
@@ -251,16 +251,18 @@ export default function Page() {
                           <h3 className="mb-2 font-bold text-gray-900 text-xl">
                             {product.Nombre}
                           </h3>
-                          <button
-                            // target="_blank"
-                            // href={`https://wa.me/1234567890`}
-                            className="block bg-green-500 hover:bg-green-600 py-2 rounded-lg w-1/2 font-bold text-center text-white transition-colors"
-                          >
-                            <div className="flex justify-center items-center">
-                              <span className="mr-2">COTIZAR</span>
-                              <FaWhatsapp />
-                            </div>
-                          </button>
+                          <div className="flex flex-row justify-center items-center w-full">
+                            <a
+                              target="_blank"
+                              href={`https://wa.me/1234567890`}
+                              className="flex flex-col bg-green-500 hover:bg-green-600 py-2 rounded-lg w-1/2 font-bold text-center text-white transition-colors"
+                            >
+                              <div className="flex justify-center items-center">
+                                <span className="mr-2">COTIZAR</span>
+                                <FaWhatsapp />
+                              </div>
+                            </a>
+                          </div>
                         </motion.div>
                       ))}
                 </div>
@@ -352,9 +354,8 @@ export default function Page() {
             </div>
           </section>
         </TextParallaxContent>
-        <ChavoyaBannerSection/>
+        <ChavoyaBannerSection />
         <ContactSection />
-
       </div>
     </div>
   );

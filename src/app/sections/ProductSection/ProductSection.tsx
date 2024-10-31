@@ -40,36 +40,47 @@ const ProductSection = () => {
   }, []);
 
   return (
-    <section id="productos" className="bg-white py-16 md:py-24">
+    <section id="productos" className="bg-white py-16 md:py-16">
       <div className="mx-auto px-4 container">
         <div className="flex flex-row justify-between items-center align-middle">
-          <h2 className="mb-5 font-light font-montserrat text-[#2D3688] text-3xl text-center md:text-4xl">
+          <h2 className="mb-5 font-light font-montserrat text-[#E5202D] text-3xl text-center md:text-4xl">
             Nuestras Marcas Destacadas
           </h2>
-         <div className="flex flex-row justify-center items-end">
-          <div
-            className="flex justify-center items-center bg-[#2D3688] hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] p-6 rounded-lg w-full h-10 text-white text-xl cursor-pointer"
-
-          >
+        </div>
+        <div className="flex flex-row justify-end items-end md:mb-4 align-middle">
+          <div className="flex flex-row justify-center items-end">
             <Link href="/Products">
-              Ver más
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "#E5202D",
+                }}
+                transition={{ duration: 0.5, yoyo: Infinity }}
+                style={{
+                  padding: "12px 25px",
+                  outline: "none",
+                  backgroundColor: "#2D3688",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "30px",
+                  cursor: "pointer",
+                }}
+              >
+                Ir a Productos
+              </motion.button>
             </Link>
           </div>
-        </div>
         </div>
 
         <div className="flex flex-col items-center w-full">
           <div className="flex flex-row justify-center items-start w-full">
-            {
-              ['/assets/logos/marcaDestacada_PARKER.png','/assets/logos/marcaDestacada_ATOS.png','/assets/logos/marcaDestacada_REXROTH.png'].map((item,key) => (
-                <Image
-                  src={item}
-                  alt="ImageBrand"
-                  width={300}
-                  height={300}
-                />
-              ))
-            }
+            {[
+              "/assets/logos/marcaDestacada_PARKER.png",
+              "/assets/logos/marcaDestacada_ATOS.png",
+              "/assets/logos/marcaDestacada_REXROTH.png",
+            ].map((item, key) => (
+              <Image src={item} alt="ImageBrand" width={300} height={300} />
+            ))}
           </div>
           <DistributeBrandsHomeSection />
         </div>

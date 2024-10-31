@@ -85,8 +85,8 @@ const TextParallaxContent = ({
   return (
     <div
       style={{
-        paddingLeft: IMG_PADDING,
-        paddingRight: IMG_PADDING,
+        // paddingLeft: IMG_PADDING,
+        // paddingRight: IMG_PADDING,
       }}
     >
       <div className="relative h-[150vh]">
