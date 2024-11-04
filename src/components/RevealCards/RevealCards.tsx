@@ -49,7 +49,7 @@ const RevealCards = ({
           className="bottom-4 left-[35%] z-10 absolute font-bold text-white text-xl transform -translate-x-1/2"
         >
           <p className="font-light text-sm text-white">{category}</p>
-          <span className="font-bold text-base text-white">{title}</span>
+          <span className="font-bold text-base text-white leading-5">{title}</span>
         </motion.div>
       </motion.div>
       <a

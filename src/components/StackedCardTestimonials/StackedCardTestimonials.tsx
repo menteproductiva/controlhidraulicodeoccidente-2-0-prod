@@ -4,9 +4,6 @@ import { IconType } from "react-icons";
 import {
   SiAtlassian,
   SiDribbble,
-  SiGrubhub,
-  SiKaggle,
-  SiSlack,
   SiNike,
 } from "react-icons/si";
 import Image from "next/image";
@@ -49,7 +46,7 @@ const SelectBtns = ({
     <div className="flex gap-1 mt-8">
       {Array.from(Array(numTracks).keys()).map((n) => {
         return (
-          <button
+          <div
             key={n}
             onClick={() => setSelected(n)}
             className="relative bg-slate-300 w-full h-1.5"
@@ -78,7 +75,7 @@ const SelectBtns = ({
                 }}
               />
             )}
-          </button>
+          </div>
         );
       })}
     </div>

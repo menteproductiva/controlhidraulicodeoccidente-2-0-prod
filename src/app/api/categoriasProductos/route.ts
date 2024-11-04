@@ -8,7 +8,7 @@ export async function GET(){
             headers: {
                 'Content-Type': 'application/json',
                 'Pragma': 'no-cache',
-                'Cache-Control': 'no-store',
+
             },
             cache: 'no-cache',
         });

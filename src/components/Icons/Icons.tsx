@@ -35,8 +35,7 @@ export function Brain(props: any) {
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     >
       <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
       <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
@@ -62,8 +61,7 @@ export function ShopCart(props: any) {
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     >
       <circle cx="8" cy="21" r="1" />
       <circle cx="19" cy="21" r="1" />
@@ -83,8 +81,7 @@ export function RightArrow(props: any) {
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     >
       <path d="M5 12h14" />
       <path d="m12 5 7 7-7 7" />
@@ -103,8 +100,7 @@ export function LeftArrow(props: any) {
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     >
       <path d="m12 19-7-7 7-7" />
       <path d="M19 12H5" />
@@ -123,7 +119,7 @@ export function Hammer(props: any) {
     //   fill="none"
     //   stroke="currentColor"
     //   strokeWidth="2"
-    //   stroke-linecap="round"
+    //   strokeLineJoin="round"
     //   stroke-linejoin="round"
     // >
     //   <path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9" />
@@ -135,18 +131,18 @@ export function Hammer(props: any) {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      stroke-width="1.5"
+      strokeWidth="1.5"
       stroke="currentColor"
-      class="size-6"
+      className="size-6"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
+
         d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 1 1-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 0 1 6.336-4.486l-3.276 3.276a3.004 3.004 0 0 0 2.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852Z"
       />
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
+
         d="M4.867 19.125h.008v.008h-.008v-.008Z"
       />
     </svg>
@@ -232,8 +228,7 @@ export function File(props: any) {
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     >
       <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
       <path d="M14 2v4a2 2 0 0 0 2 2h4" />

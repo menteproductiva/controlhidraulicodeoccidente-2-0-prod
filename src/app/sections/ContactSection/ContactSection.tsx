@@ -1,5 +1,4 @@
 "use client";
-import { Mail, Phone, PinMap } from "@/components/Icons/Icons";
 import React, { useState } from "react";
 import { FiMapPin } from "react-icons/fi";
 import { IoMailOutline } from "react-icons/io5";
@@ -48,7 +47,7 @@ const ContactSection = () => {
       });
 
       const data = await response.json();
-      console.log(data, "data");
+
 
       if (response.ok) {
         console.log("Mensaje enviado correctamente");
@@ -172,6 +171,7 @@ const ContactSection = () => {
             </div>
             <div className="rounded-lg h-64 overflow-hidden">
               <iframe
+                title="ubication-hidraulica"
                 className="border-none w-full h-full"
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4919.048913003148!2d-103.35655841441127!3d20.660391683368314!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b2010dae4e8b%3A0xe0fef6d4bba04971!2sAv.%20Crist%C3%B3bal%20Col%C3%B3n%201022%2C%20Moderna%2C%2044190%20Guadalajara%2C%20Jal.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2sus!4v1730389408223!5m2!1ses-419!2sus"
                 width="600"

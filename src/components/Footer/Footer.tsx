@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex md:flex-row flex-col justify-around items-center md:items-start">
           {/* Left logo + description */}
           <div className="flex flex-col items-center w-full md:w-1/3 text-center md:text-left">
-            <Image width={300} height={100} src="/assets/logo_3controlHidraulico.png" alt="Hidraulica" />
+            <Image fetchPriority='high' priority={true}  width={300} height={100} src="/assets/logo_3controlHidraulico.png" alt="Hidraulica" />
             <p className="mt-3 text-black text-sm">
               Empresa dedicada al área de Oleohidráulica. La mejor opción en cuanto al suministro y montaje de equipos hidráulicos.
             </p>
@@ -80,7 +80,7 @@ const Footer = () => {
         <div className="flex lg:flex-row flex-col justify-between items-center mt-8 text-[#0b4a9b] text-center text-xs">
           <div>© 2024 Hidraulica, Todos los derechos Reservados</div>
           <div className="flex items-center mt-2 lg:mt-0">
-            <p className="mr-1 text-gray-500">Powered by</p>
+            <p className="mr-1 text-gray-800">Powered by</p>
             <p className="font-bold text-[#0b4a9b] text-xl">INNAVANTI</p>
           </div>
         </div>

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ContactSection from "../sections/ContactSection/ContactSection";
-import CallToActionAboutUs from "../sections/CallToActionAboutUs/CallToActionAboutUs";
 import TextParallaxContent from "@/components/TextParallaxContent/TextParallaxContext";
 import { FaWhatsapp } from "react-icons/fa";
 import ChavoyaBannerSection from "../sections/ChavoyaBannerSection/ChavoyaBannerSection";
@@ -267,7 +266,6 @@ export default function Page() {
                       ))}
                 </div>
               </div>
-              {/* Product Sheet Modal */}
               {selectedProduct && (
                 <motion.div
                   initial={{ opacity: 0 }}

@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import ButtonNeubrutalism from "@/components/ButtonNeubratalism/ButtonNeubrutalism";
 import { motion } from "framer-motion";
 
 const CallToAction = () => {
@@ -13,11 +12,12 @@ const CallToAction = () => {
         {/* Ajuste de la imagen */}
         <div className="relative lg:-top-0 flex justify-center w-full lg:w-1/2">
           <Image
-            src="/assets/imgConoce_1.jpg"
+            src="/assets/imgConoce_2.webp"
             alt="Plano de Equipamiento Hidráulico"
             width={500}
             height={500}
             className="shadow-lg transform rotate-3"
+            loading="lazy"
           />
         </div>
         <div className="bg-white shadow-lg p-8 rounded-lg w-full lg:w-1/2">

@@ -5,12 +5,9 @@ import ContactSection from "./sections/ContactSection/ContactSection";
 import CallToAction from "./sections/CallToActionHome/CallToActionHome";
 import { ImagesSlider } from "@/components/ui/images-slider";
 import ButtonNeubrutalism from "@/components/ButtonNeubratalism/ButtonNeubrutalism";
-import Link from "next/link";
-import DistributeBrandsHomeSection from "./sections/DistributeBrandsHomeSection/DistributeBrandsHomeSection";
-import TestimonialsHomeSection from "./sections/TestimonialsHomeSection/TestimonialsHomeSection";
-import { BannerHomeSection } from "./sections/BannerHomeSection/BannerHomeSection";
 import TestimonialSection from "./sections/TestimonialSection/TestimonialSection";
 import ChavoyaBannerSection from "./sections/ChavoyaBannerSection/ChavoyaBannerSection";
+import Image from "next/image";
 
 const images = [
   "/assets/heroSlider/imgHero_1.jpg",
@@ -23,16 +20,31 @@ export default function Home() {
   return (
     <div>
       <ImagesSlider className="h-[45rem]" images={images}>
-        <div className="z-50 flex flex-col justify-center items-center px-20">
-          <p className="bg-clip-text bg-gradient-to-b from-neutral-50 to-neutral-400 px-8 py-4 font-bold text-center text-transparent text-xl lg:text-4xl/tight 2xl:text-6xl/tight">
-            SOLUCIONES HIDRÁULICAS DE ALTO RENDIMIENTO PARA IMPULSAR TUS
-            PROYECTOS INDUSTRIALES
-          </p>
-          <Link href="#Contact">
-            <ButtonNeubrutalism textColor="white" colorHover="white">
-              Conócenos
-            </ButtonNeubrutalism>
-          </Link>
+        <div className="z-50 flex flex-col justify-center items-center px-20 py-4 font-bold text-neutral-50">
+          {/* SOLUCIONES HIDRÁULICAS DE ALTO RENDIMIENTO  */}
+          {/* PARA IMPULSAR TUS PROYECTOS
+          INDUSTRIALES */}
+          {/* <Image
+            rel="preload"
+            loading="lazy"
+            src="/assets/HERO_NAME.png"
+            alt="hero_name"
+            width={800}
+            height={800}
+            fetchPriority="high"
+          /> */}
+          <svg viewBox="0 0 4000 1000" width="40rem" xmlns="http://www.w3.org/2000/svg" className="border-2 border-red-500 w-full">
+            <text x="20" y="300" style={{color: "#ffff"}} fill="#ffff"  fontSize="9.2rem">
+              SOLUCIONES HIDRÁULICAS DE ALTO RENDIMIENTO
+            </text>
+          </svg>
+          <ButtonNeubrutalism
+            url="#Contact"
+            textColor="white"
+            colorHover="white"
+          >
+            Conócenos
+          </ButtonNeubrutalism>
         </div>
       </ImagesSlider>
       <CallToAction />
@@ -47,3 +59,7 @@ export default function Home() {
     </div>
   );
 }
+
+const ComponentHero = () => {
+  return <></>;
+};

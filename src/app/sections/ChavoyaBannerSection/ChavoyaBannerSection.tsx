@@ -11,6 +11,7 @@ const ChavoyaBannerSection = () => {
         <h2 className="font-bold text-4xl text-white md:text-6xl">DESCUBRE</h2>
         <div className="flex justify-center items-center w-full">
           <Image
+            loading="lazy"
             className="mt-4 md:mt-6"
             alt="Chavoya"
             width={300} // Cambiado para pantallas pequeñas
