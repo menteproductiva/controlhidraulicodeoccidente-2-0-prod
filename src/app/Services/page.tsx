@@ -1,11 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import DiagnosticsServicesSection from "../sections/DiagnosticsServicesSection/DiagnosticsServicesSection";
-import CallToActionAboutUs from "../sections/CallToActionAboutUs/CallToActionAboutUs";
 import TextParallaxContent from "@/components/TextParallaxContent/TextParallaxContext";
-import { FiTool, FiSettings, FiCheckCircle } from "react-icons/fi";
+import { FiTool, FiSettings } from "react-icons/fi";
 import { FaTools } from "react-icons/fa";
-import HoverDevCards from "@/components/HoverDevCards/HoverDevCards";
 import RevealCards from "@/components/RevealCards/RevealCards";
 import ChavoyaBannerSection from "../sections/ChavoyaBannerSection/ChavoyaBannerSection";
 

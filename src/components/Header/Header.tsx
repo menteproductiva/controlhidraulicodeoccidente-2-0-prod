@@ -77,7 +77,7 @@ const Logo = ({ color = "white" }) => {
   return (
     <div className="flex items-center gap-2 h-16">
       <Link href="/" className='flex flex-col justify-center items-center h-16'>
-        <Image alt='Logo' className='w-full h-14'  src="/assets/logo_3controlHidraulico.png" width={150} height={500}/>
+        <Image fetchPriority='high' priority={true}  alt='Logo' className='w-full h-14'  src="/assets/logo_3controlHidraulico.png" width={150} height={500}/>
       </Link>
     </div>
   );

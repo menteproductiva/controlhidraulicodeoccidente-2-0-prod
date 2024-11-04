@@ -3,6 +3,13 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
+const images2 = [
+  "/assets/heroSlider/imgHero_1.jpg",
+  "/assets/heroSlider/imgHero_2.jpg",
+  "/assets/heroSlider/imgHero_3.jpg",
+  "/assets/heroSlider/imgHero_4.jpg",
+];
+
 export const ImagesSlider = ({
   images,
   children,
@@ -42,7 +49,7 @@ export const ImagesSlider = ({
 
   const loadImages = () => {
     setLoading(true);
-    const loadPromises = images.map((image) => {
+    const loadPromises = images2.map((image) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
         img.src = image;
@@ -126,25 +133,34 @@ export const ImagesSlider = ({
         perspective: "1000px",
       }}
     >
-      {areImagesLoaded && children}
-      {areImagesLoaded && overlay && (
-        <div
-          className={cn("absolute inset-0 bg-black/60 z-40", overlayClassName)}
-        />
-      )}
-
       {areImagesLoaded && (
-        <AnimatePresence>
-          <motion.img
-            key={currentIndex}
-            src={loadedImages[currentIndex]}
-            initial="initial"
-            animate="visible"
-            exit={direction === "up" ? "upExit" : "downExit"}
-            variants={slideVariants}
-            className="absolute inset-0 w-full h-full image object-center object-cover"
-          />
-        </AnimatePresence>
+        <>
+          <AnimatePresence>
+            <motion.img
+              alt="hero-slider"
+              fetchPriority="high"
+              key={currentIndex}
+              src={images2[currentIndex]}
+              initial="initial"
+              animate="visible"
+              exit={direction === "up" ? "upExit" : "downExit"}
+              variants={slideVariants}
+              className="absolute inset-0 w-full h-full image object-center object-cover"
+            />
+          </AnimatePresence>
+
+          {/* Text Overlay */}
+          {overlay && (
+            <div
+              className={cn("absolute inset-0 bg-black/60 z-40", overlayClassName)}
+            />
+          )}
+          <div className="z-50 absolute text-center">
+            <p className="text-neutral-50 text-xl">
+              SOLUCIONES HIDRÁULICAS DE ALTO RENDIMIENTO
+            </p>
+          </div>
+        </>
       )}
     </div>
   );

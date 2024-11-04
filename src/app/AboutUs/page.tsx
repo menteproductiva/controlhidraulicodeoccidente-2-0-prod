@@ -1,11 +1,8 @@
 "use client";
 import React from "react";
 import OurValuesSection from "../sections/OurValuesSection/OurValuesSection";
-import InfiniteScrollList from "../sections/OurJourneySection/OurJourneySection";
 import OurPartnetsSection from "../sections/OurPartnetsSection/OurPartnetsSection";
 import TextParallaxContent from "@/components/TextParallaxContent/TextParallaxContext";
-import Image from "next/image";
-import { BannerHomeSection } from "../sections/BannerHomeSection/BannerHomeSection";
 import ChavoyaBannerSection from "../sections/ChavoyaBannerSection/ChavoyaBannerSection";
 import AnimatedLogo from "@/components/AnimatedLogo/AnimatedLogo";
 
@@ -50,10 +47,7 @@ const Page = () => {
         </TextParallaxContent>
       </div>
       <OurValuesSection />
-      {/* <InfiniteScrollList /> */}
       <OurPartnetsSection />
-      {/* <BannerHomeSection/>
-      < */}
       <div>
         <ChavoyaBannerSection/>
       </div>

@@ -8,7 +8,6 @@ import TextParallaxContent from "@/components/TextParallaxContent/TextParallaxCo
 const Page = () => {
   return (
     <>
-      {/* <HeroSection /> */}
       <div className="bg-[#2D3688]">
         <TextParallaxContent
           imgUrl="/assets/imgServices.jpg"
