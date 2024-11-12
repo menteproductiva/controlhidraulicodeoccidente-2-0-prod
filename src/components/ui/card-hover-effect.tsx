@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export const HoverEffect = ({
   items,
@@ -10,7 +11,7 @@ export const HoverEffect = ({
     title: string;
     description: string;
     link?: string;
-    icon: any
+    icon: any;
   }[];
   className?: string;
 }) => {
@@ -19,13 +20,18 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
         className
       )}
     >
       {items.map((item, idx) => (
-        <div
+        <a
           key={idx}
+          href={`https://wa.me/?text=${encodeURIComponent(
+            `Hola, estoy interesado en ${item.title}`
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="block relative p-2 w-full h-full group"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -48,10 +54,18 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <CardTitle>{item.title}<span  className="inline-block ml-2 w-5 h-5">{item.icon}</span></CardTitle>
+            <CardTitle className="flex justify-between items-center">
+              <div className="flex items-center">
+                {item.title}
+                <span className="inline-block ml-2 w-5 h-5">{item.icon}</span>
+              </div>
+              <span className="inline-block flex justify-center items-center bg-green-500 rounded-full w-8 h-8">
+                <FaWhatsapp className="w-5 h-5 text-white" />
+              </span>
+            </CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
-        </div>
+        </a>
       ))}
     </div>
   );
@@ -77,6 +91,7 @@ export const Card = ({
     </div>
   );
 };
+
 export const CardTitle = ({
   className,
   children,
@@ -85,11 +100,17 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4 className={cn("text-zinc-100 text-xl font-bold tracking-wide mt-4", className)}>
+    <h1
+      className={cn(
+        "text-zinc-100 text-xl font-bold tracking-wide mt-4",
+        className
+      )}
+    >
       {children}
-    </h4>
+    </h1>
   );
 };
+
 export const CardDescription = ({
   className,
   children,

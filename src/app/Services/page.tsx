@@ -18,6 +18,16 @@ const services = [
     Icon: FiSettings,
   },
   {
+    title: "Filtros Hidráulicos",
+    titleDescription: "Tiempo de mantenimiento",
+    description:
+      "Sustitución de elementos filtrantes y reparación de sistemas de filtración, asegurando la limpieza del fluido hidráulico y evitando fallos.",
+    category: "Reparación",
+    buttonText: "SOLICITAR COTIZACIÓN",
+    url: "/assets/services/filtrosHidraulicos.jpg",
+    Icon: FaTools,
+  },
+  {
     title: "Cilindros Hidráulicos",
     titleDescription: "Tiempo de mantenimiento",
     description:
@@ -26,6 +36,16 @@ const services = [
     buttonText: "SOLICITAR COTIZACIÓN",
     url: "/assets/services/cilindrosHidraulicos.jpg",
     Icon: FiTool,
+  },
+  {
+    title: "Tuberías y conexiones",
+    titleDescription: "Tiempo de mantenimiento",
+    description:
+      "Sustitución y reparación de tuberías, mangueras y conectores hidráulicos para prevenir fugas y asegurar la eficiencia del sitema.",
+    category: "Reparación",
+    buttonText: "SOLICITAR COTIZACIÓN",
+    url: "/assets/services/tuberiasConexiones.jpg",
+    Icon: FaTools,
   },
   {
     title: "Válvulas Hidráulicas",
@@ -47,16 +67,7 @@ const services = [
     url: "/assets/services/motoresHidraulicos.jpg",
     Icon: FaTools,
   },
-  {
-    title: "Filtros Hidráulicos",
-    titleDescription: "Tiempo de mantenimiento",
-    description:
-      "Sustitución de elementos filtrantes y reparación de sistemas de filtración, asegurando la limpieza del fluido hidráulico y evitando fallos.",
-    category: "Reparación",
-    buttonText: "SOLICITAR COTIZACIÓN",
-    url: "/assets/services/filtrosHidraulicos.jpg",
-    Icon: FaTools,
-  },
+  
   {
     title: "Unidades de Potencia",
     titleDescription: "Tiempo de mantenimiento",
@@ -77,16 +88,7 @@ const services = [
     url: "/assets/services/acumuladoresHidraulicos.jpg",
     Icon: FaTools,
   },
-  {
-    title: "Tuberías y conexiones",
-    titleDescription: "Tiempo de mantenimiento",
-    description:
-      "Sustitución y reparación de tuberías, mangueras y conectores hidráulicos para prevenir fugas y asegurar la eficiencia del sitema.",
-    category: "Reparación",
-    buttonText: "SOLICITAR COTIZACIÓN",
-    url: "/assets/services/tuberiasConexiones.jpg",
-    Icon: FaTools,
-  },
+  
   {
     title: "Inspección Visual",
     titleDescription: "Tiempo de mantenimiento",

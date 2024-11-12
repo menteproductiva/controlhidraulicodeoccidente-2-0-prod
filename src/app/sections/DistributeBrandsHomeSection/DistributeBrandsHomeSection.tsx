@@ -1,13 +1,13 @@
 "use client"
-import ScrollingLogos from "@/components/ScrollingLogos/ScrollingLogos";
 import React from "react";
+import OurPartnetsSection from "../OurPartnetsSection/OurPartnetsSection";
 
 const DistributeBrandsHomeSection = () => {
   return (
     <section className="bg-white py-16 md:py-7">
       <div className="mx-auto container">
         
-        <ScrollingLogos/>
+      <OurPartnetsSection />
       </div>
     </section>
   );

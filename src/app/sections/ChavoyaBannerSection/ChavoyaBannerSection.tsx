@@ -6,7 +6,7 @@ import React from "react";
 
 const ChavoyaBannerSection = () => {
   return (
-    <div className="flex md:flex-row flex-col justify-center bg-[url('/assets/bg_empaquesHidraulicos_ok.jpg')] bg-blend-screen bg-cover bg-no-repeat bg-center px-4 lg:py-4 h-[40rem] md:h-[28rem] lg:h-[32rem]">
+    <div className="flex md:flex-row flex-col justify-center bg-[url('/assets/bg_empaquesHidraulicos_ok2.webp')] bg-blend-screen bg-cover bg-no-repeat bg-center px-4 lg:py-4 h-[40rem] md:h-[28rem] lg:h-[32rem]">
       <div className="flex flex-col justify-center items-center w-full md:w-1/2">
         <h2 className="font-bold text-4xl text-white md:text-6xl">DESCUBRE</h2>
         <div className="flex justify-center items-center w-full">

@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 interface HeroSectionProps {
   id: string;
@@ -25,10 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   imageAlt,
 }) => {
   return (
-    <section
-      id={id}
-      className="bg-[#1A2056] pt-24 md:pt-32 text-white"
-    >
+    <section id={id} className="bg-[#1A2056] pt-24 md:pt-32 text-white">
       <div className="mx-auto px-4 py-16 md:py-24 container">
         <div className="flex md:flex-row flex-col items-center">
           <div className="mb-8 md:mb-0 md:w-1/2">
@@ -43,15 +42,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 {primaryActionText}
               </a>
+             
               {secondaryActionText && secondaryActionLink && (
-                <a
-                  href={secondaryActionLink}
-                  className="inline-block bg-white hover:bg-gray-100 px-8 py-3 rounded-full w-full md:w-auto font-bold text-[#2D3688] transition duration-300"
-                >
-                  {secondaryActionText}
-                </a>
+                <div>
+                  <a
+                    href={secondaryActionLink}
+                    className="inline-block bg-white hover:bg-gray-100 px-8 py-3 rounded-full w-full md:w-auto font-bold text-[#2D3688] transition duration-300"
+                  >
+                    {secondaryActionText}
+                  </a>
+                </div>
               )}
             </div>
+            <h2 className="md:mt-8 text-xl">Síguenos en nuestras redes sociales</h2>
+
+            <div className="flex justify-stretch space-x-0 md:space-x-4 space-y-4 md:space-y-0 mt-3 rounded-full md:w-1/2 font-bold text-white">
+                <Link href="https://www.facebook.com/controlhidraulicodeo">
+                  <FaFacebook className="md:mr-2 w-8 h-8 hover:text-[#C41D27]"/>
+                </Link>
+                <Link href="https://www.facebook.com/controlhidraulicodeo">
+                  <FaInstagram className="md:mr-2 w-8 h-8 hover:text-[#C41D27]"/>
+                </Link>
+                <Link href="https://www.facebook.com/controlhidraulicodeo">
+                  <FaTiktok className="w-8 h-8 hover:text-[#C41D27]"/>
+                </Link>
+              </div>
           </div>
           <div className="md:w-1/2">
             <Image
