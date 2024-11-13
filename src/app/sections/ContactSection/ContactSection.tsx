@@ -157,11 +157,11 @@ const ContactSection = () => {
               <div className="space-y-4">
                 <p className="flex items-center">
                   <FiMapPin className="mr-2 w-8 h-8 text-white" />
-                  Av. Cristóbal Colón 1022,Moderna 44190 Guadalajara, Jalisco
+                  Calle Colón #1021,Moderna 44190 Guadalajara, Jalisco
                 </p>
                 <p className="flex items-center">
                   <MdOutlineLocalPhone className="mr-2 w-8 h-8" />
-                  1203 1611 / 12031612
+                  33 1203 1611 / 33 1203 1612
                 </p>
                 <p className="flex items-center">
                   <IoMailOutline className="mr-2 w-8 h-8" />{" "}

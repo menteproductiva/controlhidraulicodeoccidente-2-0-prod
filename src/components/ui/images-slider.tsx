@@ -2,12 +2,13 @@
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import ButtonNeubrutalism from "../ButtonNeubratalism/ButtonNeubrutalism";
 
 const images2 = [
-  "/assets/heroSlider/imgHero_1.jpg",
-  "/assets/heroSlider/imgHero_2.jpg",
-  "/assets/heroSlider/imgHero_3.jpg",
-  "/assets/heroSlider/imgHero_4.jpg",
+  "/assets/heroSlider/imgHero_1.webp",
+  "/assets/heroSlider/imgHero_2.webp",
+  "/assets/heroSlider/imgHero_3.webp",
+  "/assets/heroSlider/imgHero_4.webp",
 ];
 
 export const ImagesSlider = ({
@@ -137,6 +138,7 @@ export const ImagesSlider = ({
         <>
           <AnimatePresence>
             <motion.img
+              loading="lazy"
               alt="hero-slider"
               fetchPriority="high"
               key={currentIndex}
@@ -152,13 +154,25 @@ export const ImagesSlider = ({
           {/* Text Overlay */}
           {overlay && (
             <div
-              className={cn("absolute inset-0 bg-black/60 z-40", overlayClassName)}
+              className={cn(
+                "absolute inset-0 bg-black/60 z-40",
+                overlayClassName
+              )}
             />
           )}
-          <div className="z-50 absolute text-center">
-            <p className="text-neutral-50 text-xl">
+          <div className="z-50 absolute px-4 text-center">
+            <p className="drop-shadow-md mb-2 font-bold text-5xl text-neutral-50">
               SOLUCIONES HIDRÁULICAS DE ALTO RENDIMIENTO
+              <br />
+              PARA IMPULSAR TUS PROYECTOS INDUSTRIALES
             </p>
+            <ButtonNeubrutalism
+              url="#Contact"
+              textColor="white"
+              colorHover="white"
+            >
+              Conócenos
+            </ButtonNeubrutalism>
           </div>
         </>
       )}
