@@ -4,10 +4,9 @@ import ProductSection from "./sections/ProductSection/ProductSection";
 import ContactSection from "./sections/ContactSection/ContactSection";
 import CallToAction from "./sections/CallToActionHome/CallToActionHome";
 import { ImagesSlider } from "@/components/ui/images-slider";
-import ButtonNeubrutalism from "@/components/ButtonNeubratalism/ButtonNeubrutalism";
 import TestimonialSection from "./sections/TestimonialSection/TestimonialSection";
 import ChavoyaBannerSection from "./sections/ChavoyaBannerSection/ChavoyaBannerSection";
-import Image from "next/image";
+
 
 const images = [
   "/assets/heroSlider/imgHero_1.jpg",
@@ -28,7 +27,7 @@ export default function Home() {
       <ServicesSection />
       <ProductSection />
       <TestimonialSection />
-      <div>
+      <div >
         <ChavoyaBannerSection />
       </div>
       <ContactSection />

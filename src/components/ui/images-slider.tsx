@@ -161,7 +161,7 @@ export const ImagesSlider = ({
             />
           )}
           <div className="z-50 absolute px-4 text-center">
-            <p className="drop-shadow-md mb-2 font-bold text-5xl text-neutral-50">
+            <p className="drop-shadow-md mb-2 font-bold text-3xl text-neutral-50 md:text-5xl">
               SOLUCIONES HIDRÁULICAS DE ALTO RENDIMIENTO
               <br />
               PARA IMPULSAR TUS PROYECTOS INDUSTRIALES
