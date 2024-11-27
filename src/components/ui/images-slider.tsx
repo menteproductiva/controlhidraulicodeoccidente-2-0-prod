@@ -167,7 +167,7 @@ export const ImagesSlider = ({
               PARA IMPULSAR TUS PROYECTOS INDUSTRIALES
             </p>
             <ButtonNeubrutalism
-              url="#Contact"
+              url="/Contact"
               textColor="white"
               colorHover="white"
             >

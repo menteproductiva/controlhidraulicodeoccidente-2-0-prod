@@ -70,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Imagen */}
-          <div className="flex justify-center md:justify-end w-full md:w-1/2">
+          <div className="flex justify-center md:justify-end mb-2 md:mb-0 w-full md:w-1/2">
             <Image
               src={imageSrc}
               alt={imageAlt}
