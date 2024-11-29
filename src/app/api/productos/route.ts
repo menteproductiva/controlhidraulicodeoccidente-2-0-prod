@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
+import {getFetchOptions} from "@/utils/cacheRevalidate"
 
 export async function GET(){
     try {
 
+        const additionalOptions = getFetchOptions()
         const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/Productos`, {
             method: 'GET',
             headers: {
@@ -10,7 +12,8 @@ export async function GET(){
                 'Pragma': 'no-cache',
 
             },
-            cache: 'no-cache',
+            // cache: 'no-cache',
+            ...additionalOptions
         });
 
         if(!response.ok){

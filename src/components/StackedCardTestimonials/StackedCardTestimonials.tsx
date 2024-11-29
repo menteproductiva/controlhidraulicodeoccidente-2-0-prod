@@ -92,7 +92,7 @@ const Cards = ({
   setSelected: Dispatch<SetStateAction<number>>;
 }) => {
   return (
-    <div className="relative shadow-xl p-4 h-[450px] lg:h-[500px]">
+    <div className="relative shadow-xl p-4 h-[590px] lg:h-[500px]">
       {testimonials.map((t, i) => {
         return (
           <Card

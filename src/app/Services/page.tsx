@@ -225,7 +225,7 @@ const Page = () => {
             <h2 className="mb-8 font-bold text-3xl text-center text-gray-800">
               Instalación y Mantenimiento de Sistemas Hidráulicos
             </h2>
-            <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-5 mx-auto max-w-7xl">
+            <div className="gap-8 grid md:grid-cols-2 lg:grid-cols-5 mx-1.5 lg:mx-auto max-w-7xl">
               {services.map((service, index) => (
                 <RevealCards
                   key={index}
