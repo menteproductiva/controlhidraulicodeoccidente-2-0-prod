@@ -1,63 +1,65 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { motion, useSpring } from "framer-motion";
-import CardCarousel from "@/components/CardCarousel/CardCarousel";
-
-
-const products = [
-  {
-    title: "Bomba Hidráulica de Alta Presión",
-    description: "Ideal para aplicaciones industriales exigentes.",
-    url: "/assets/products/bomba.jpg",
-  },
-  {
-    title: "Válvula de Control Proporcional",
-    description: "Precisión excepcional en el control de flujo hidráulico.",
-    url: "/assets/products/valvula.jpeg",
-  },
-  {
-    title: "Cilindro Hidráulico",
-    description:
-      "Diseñado para soportar cargas pesadas y uso intensivo en cadenas de suministros.",
-    url: "/assets/products/cilindro.jpg",
-  },
-  {
-    title: "Sistema de Filtración Avanzado",
-    description:
-      "Mantiene la pureza del fluido hidráulico para un rendimiento óptimo.",
-    url: "/assets/products/sistema.jpeg",
-  },
-];
+import DistributeBrandsHomeSection from "../DistributeBrandsHomeSection/DistributeBrandsHomeSection";
+import Image from "next/image";
 
 const ProductSection = () => {
   const x = useSpring(0.5);
-  const y = useSpring(0.5);
 
   useEffect(() => {
     x.set(1);
   }, []);
 
   return (
-    <section id="productos" className="bg-white py-16 md:py-24">
+    <section id="productos" className="bg-white py-12 md:py-16">
       <div className="mx-auto px-4 container">
-        <h2 className="mb-12 font-light font-montserrat text-[#2D3688] text-3xl text-center md:text-4xl">
-          Productos Destacados
-        </h2>
-        <div 
-        className="flex flex-col items-center w-full"
-        >
-          <CardCarousel items={products}/>
+        {/* Título */}
+        <div className="flex flex-row justify-center md:justify-between items-center mb-8">
+          <h2 className="font-light font-montserrat text-[#E5202D] text-3xl text-center md:text-4xl">
+            Nuestras Marcas Destacadas
+          </h2>
         </div>
-        <div className="flex flex-row justify-center items-end mt-12">
-          <motion.div
-            className="flex justify-center items-center bg-[#2D3688] hover:bg-[#0b4a9b] focus:bg-[#0b4a9b] p-6 rounded-lg w-1/5 h-10 text-white text-xl animate-bounce cursor-pointer"
-            style={{ scale: x }}
-          >
-            <Link href="/Products">
-              Ver más
-            </Link>
-          </motion.div>
+
+        {/* Botón Ir a Productos */}
+        <div className="flex justify-center md:justify-end mb-6">
+          <Link href="/Products">
+            <motion.button
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "#E5202D",
+              }}
+              transition={{ duration: 0.3 }}
+              className="bg-[#2D3688] hover:bg-[#E5202D] px-6 py-3 rounded-full text-white transition-all cursor-pointer"
+            >
+              Ir a Productos
+            </motion.button>
+          </Link>
+        </div>
+
+        {/* Marcas Destacadas */}
+        <div className="items-center gap-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+          {[
+            "/assets/logos/marcaDestacada_PARKER.png",
+            "/assets/logos/marcaDestacada_ATOS.png",
+            "/assets/logos/marcaDestacada_REXROTH.png",
+          ].map((item, key) => (
+            <div key={key} className="flex justify-center">
+              <Image
+                src={item}
+                alt="ImageBrand"
+                width={200}
+                height={200}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Sección Adicional */}
+        <div className="mt-8">
+          <DistributeBrandsHomeSection />
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import ButtonNeubrutalism from "@/components/ButtonNeubratalism/ButtonNeubrutalism";
+import { motion } from "framer-motion";
 
 const CallToAction = () => {
   return (
@@ -12,11 +12,12 @@ const CallToAction = () => {
         {/* Ajuste de la imagen */}
         <div className="relative lg:-top-0 flex justify-center w-full lg:w-1/2">
           <Image
-            src="/assets/imgConoce_1.jpg"
+            src="/assets/imgConoce_2.webp"
             alt="Plano de Equipamiento Hidráulico"
             width={500}
             height={500}
             className="shadow-lg transform rotate-3"
+            loading="lazy"
           />
         </div>
         <div className="bg-white shadow-lg p-8 rounded-lg w-full lg:w-1/2">
@@ -27,10 +28,26 @@ const CallToAction = () => {
             Deja tus datos ahora y recibe una consulta gratuita sobre nuestros
             sistemas de equipamiento hidráulico.
           </p>
-          <Link href="/TechnicalSupport">
-            <ButtonNeubrutalism textColor="red" colorHover="red">Explorar</ButtonNeubrutalism>
-          </Link>
-         
+          <Link href="/Products">
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "#E5202D",
+                }}
+                transition={{ duration: 0.5, yoyo: Infinity }}
+                style={{
+                  padding: "12px 25px",
+                  outline: "none",
+                  backgroundColor: "#2D3688",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "30px",
+                  cursor: "pointer",
+                }}
+              >
+                Explorar
+              </motion.button>
+            </Link>
         </div>
       </div>
     </section>

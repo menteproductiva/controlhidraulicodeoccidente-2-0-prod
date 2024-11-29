@@ -2,6 +2,14 @@
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import ButtonNeubrutalism from "../ButtonNeubratalism/ButtonNeubrutalism";
+
+const images2 = [
+  "/assets/heroSlider/imgHero_1.webp",
+  "/assets/heroSlider/imgHero_2.webp",
+  "/assets/heroSlider/imgHero_3.webp",
+  "/assets/heroSlider/imgHero_4.webp",
+];
 
 export const ImagesSlider = ({
   images,
@@ -42,7 +50,7 @@ export const ImagesSlider = ({
 
   const loadImages = () => {
     setLoading(true);
-    const loadPromises = images.map((image) => {
+    const loadPromises = images2.map((image) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
         img.src = image;
@@ -126,25 +134,47 @@ export const ImagesSlider = ({
         perspective: "1000px",
       }}
     >
-      {areImagesLoaded && children}
-      {areImagesLoaded && overlay && (
-        <div
-          className={cn("absolute inset-0 bg-black/60 z-40", overlayClassName)}
-        />
-      )}
-
       {areImagesLoaded && (
-        <AnimatePresence>
-          <motion.img
-            key={currentIndex}
-            src={loadedImages[currentIndex]}
-            initial="initial"
-            animate="visible"
-            exit={direction === "up" ? "upExit" : "downExit"}
-            variants={slideVariants}
-            className="absolute inset-0 w-full h-full image object-center object-cover"
-          />
-        </AnimatePresence>
+        <>
+          <AnimatePresence>
+            <motion.img
+              loading="lazy"
+              alt="hero-slider"
+              fetchPriority="high"
+              key={currentIndex}
+              src={images2[currentIndex]}
+              initial="initial"
+              animate="visible"
+              exit={direction === "up" ? "upExit" : "downExit"}
+              variants={slideVariants}
+              className="absolute inset-0 w-full h-full image object-center object-cover"
+            />
+          </AnimatePresence>
+
+          {/* Text Overlay */}
+          {overlay && (
+            <div
+              className={cn(
+                "absolute inset-0 bg-black/60 z-40",
+                overlayClassName
+              )}
+            />
+          )}
+          <div className="z-50 absolute px-4 text-center">
+            <p className="drop-shadow-md mb-2 font-bold text-3xl text-neutral-50 md:text-5xl">
+              SOLUCIONES HIDRÁULICAS DE ALTO RENDIMIENTO
+              <br />
+              PARA IMPULSAR TUS PROYECTOS INDUSTRIALES
+            </p>
+            <ButtonNeubrutalism
+              url="/Contact"
+              textColor="white"
+              colorHover="white"
+            >
+              Conócenos
+            </ButtonNeubrutalism>
+          </div>
+        </>
       )}
     </div>
   );

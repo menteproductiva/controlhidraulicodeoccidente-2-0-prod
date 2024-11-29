@@ -53,14 +53,14 @@ const Header = () => {
   return (
     <nav
       className={`fixed top-0 z-50 w-full px-6 text-white 
-      transition-all duration-300 ease-out lg:px-12
+      transition-all duration-300  ease-out lg:px-12
       ${
         scrolled
           ? "bg-[#2D3688] py-3 shadow-xl"
           : "bg-neutral-950/0 py-6 shadow-none"
       }`}
     >
-      <div className="flex justify-between items-center mx-auto max-w-7xl">
+      <div className="flex justify-between items-center mx-auto max-w-7xl align-middle">
         <Logo />
         <div className="lg:flex gap-6 hidden">
           <Links />
@@ -75,9 +75,9 @@ const Header = () => {
 const Logo = ({ color = "white" }) => {
   // Temp logo from https://logoipsum.com/
   return (
-    <div className="flex items-center gap-2">
-      <Link href="/">
-        <Image alt='Logo' src="/assets/logo_controlHidraulico.png" width={150} height={150}/>
+    <div className="flex items-center gap-2 h-16">
+      <Link href="/" className='flex flex-col justify-center items-center h-16'>
+        <Image fetchPriority='high' priority={true}  alt='Logo' className='w-full h-14'  src="/assets/logo_3controlHidraulico.png" width={150} height={500}/>
       </Link>
     </div>
   );
@@ -179,7 +179,7 @@ const MobileMenuLink = ({
           className="flex justify-between items-center border-neutral-300 py-6 border-b w-full font-semibold text-2xl text-start cursor-pointer"
           onClick={() => setOpen((pv) => !pv)}
         >
-          <a
+          <Link
             onClick={(e) => {
               e.stopPropagation();
               setMenuOpen(false);
@@ -187,7 +187,7 @@ const MobileMenuLink = ({
             href={href}
           >
             {children}
-          </a>
+          </Link>
           <motion.div
             animate={{ rotate: open ? "180deg" : "0deg" }}
             transition={{
@@ -204,7 +204,7 @@ const MobileMenuLink = ({
             e.stopPropagation();
             setMenuOpen(false);
           }}
-          href="#"
+          href={href}
           className="flex justify-between items-center border-neutral-300 py-6 border-b w-full font-semibold text-2xl text-start cursor-pointer"
         >
           <span>{children}</span>

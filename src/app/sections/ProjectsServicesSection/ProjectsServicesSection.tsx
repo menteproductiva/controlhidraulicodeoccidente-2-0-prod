@@ -34,9 +34,9 @@ const ProjectsServicesSection = () => {
   return (
     <section className="flex flex-col bg-[#2D3688] py-16">
       <h2 className="mb-8 font-bold text-3xl text-center text-white">
-        Instalación y Mantenimiento de Sistemas Hidráulicos
+        Reparación
       </h2>
-      <div className="grid grid-cols-3 text-black">
+      <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-black">
         {services.map((item) => (
           <ShimmerBorderCard
             title={item.title}

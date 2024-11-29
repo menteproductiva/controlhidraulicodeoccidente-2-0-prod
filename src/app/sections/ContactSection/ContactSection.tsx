@@ -1,6 +1,8 @@
 "use client";
-import { Mail, Phone, PinMap } from "@/components/Icons/Icons";
 import React, { useState } from "react";
+import { FiMapPin } from "react-icons/fi";
+import { IoMailOutline } from "react-icons/io5";
+import { MdOutlineLocalPhone } from "react-icons/md";
 
 interface TypeData {
   Nombre: string;
@@ -21,7 +23,11 @@ const ContactSection = () => {
     Mensaje: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setInfoSubmit({
       ...infoSubmit,
       [e.target.name]: e.target.value,
@@ -29,7 +35,7 @@ const ContactSection = () => {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     try {
       const response = await fetch("/api/contacto", {
@@ -40,14 +46,19 @@ const ContactSection = () => {
         body: JSON.stringify(infoSubmit),
       });
 
-      const data = await response.json()
-      console.log(data,"data");
-      
-      
+      const data = await response.json();
+
 
       if (response.ok) {
         console.log("Mensaje enviado correctamente");
-        setInfoSubmit({ Nombre: "", Correo: "", Telefono: "", Empresa: "",Motivo:"", Mensaje: "" });
+        setInfoSubmit({
+          Nombre: "",
+          Correo: "",
+          Telefono: "",
+          Empresa: "",
+          Motivo: "",
+          Mensaje: "",
+        });
       } else {
         console.log("Error al enviar el mensaje");
       }
@@ -116,7 +127,9 @@ const ContactSection = () => {
                 <option value="consulta-general">Consulta General</option>
                 <option value="cotizacion">Cotización</option>
                 <option value="soporte-tecnico">Soporte técnico</option>
-                <option value="asesoria-proyectos">Asesoría en proyectos</option>
+                <option value="asesoria-proyectos">
+                  Asesoría en proyectos
+                </option>
                 <option value="reparacion">Reparación</option>
                 <option value="compra">Compra</option>
                 <option value="otros">Otros</option>
@@ -131,9 +144,7 @@ const ContactSection = () => {
                 className="bg-white p-3 border rounded-lg w-full text-gray-800"
                 required
               ></textarea>
-              <button
-                className="bg-[#E5202D] hover:bg-[#C41D27] px-6 py-3 rounded-full w-full font-bold text-white transition duration-300"
-              >
+              <button className="bg-[#E5202D] hover:bg-[#C41D27] px-6 py-3 rounded-full w-full font-bold text-white transition duration-300">
                 Enviar Mensaje
               </button>
             </form>
@@ -145,23 +156,30 @@ const ContactSection = () => {
               </h3>
               <div className="space-y-4">
                 <p className="flex items-center">
-                  <PinMap className="mr-2 w-8 h-8" /> Av. Ejemplo 123,
-                  Guadalajara, Jalisco
+                  <FiMapPin className="mr-2 w-8 h-8 text-white" />
+                  Calle Colón #1021,Moderna 44190 Guadalajara, Jalisco
                 </p>
                 <p className="flex items-center">
-                  <Phone className="mr-2 w-8 h-8" /> +52 (33) 1234-5678
+                  <MdOutlineLocalPhone className="mr-2 w-8 h-8" />
+                  33 1203 1611 / 33 1203 1612
                 </p>
                 <p className="flex items-center">
-                  <Mail className="mr-2 w-8 h-8" /> info@controlhidraulico.com
+                  <IoMailOutline className="mr-2 w-8 h-8" />{" "}
+                  ventascontrolhidraulico473@gmail.com
                 </p>
               </div>
             </div>
             <div className="rounded-lg h-64 overflow-hidden">
               <iframe
+                title="ubication-hidraulica"
                 className="border-none w-full h-full"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3160407063!2d-74.25986568785095!3d40.697670063849574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQxJzUxLjYiTiA3NMKwMTUnMzUuNyJX!5e0!3m2!1sen!2sus!4v1652901957916"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4919.048913003148!2d-103.35655841441127!3d20.660391683368314!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b2010dae4e8b%3A0xe0fef6d4bba04971!2sAv.%20Crist%C3%B3bal%20Col%C3%B3n%201022%2C%20Moderna%2C%2044190%20Guadalajara%2C%20Jal.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2sus!4v1730389408223!5m2!1ses-419!2sus"
+                width="600"
+                height="450"
+                // style="border:0;"
+                // allowfullscreen=""
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                // referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
