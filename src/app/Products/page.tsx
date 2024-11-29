@@ -22,7 +22,7 @@ interface ProductsType {
   Dimensiones: string;
   Categoria: string;
   Ficha: string;
-  Peso: number;
+  Peso: number | string;
   Precio: number;
   Imagen: string;
   Nombre: string;
@@ -45,33 +45,36 @@ export default function Page() {
     const fetchData = async () => {
       try {
         setLoading(true);
+  
+        // Fetch categories
+        const [responseCategories, responseProducts,responseMarca] = await Promise.all([
+          fetch('/api/categoriasProductos'),
+          fetch('/api/productos'),
+          fetch('/api/marca'),
 
-        const response_categories = await fetch('/api/categoriasProductos');
-        const data_categories = await response_categories.json();
-
-        const response_brands = await fetch('/api/marca');
-        const data_brands = await response_brands.json();
-
-        const response_products = await fetch('/api/productos');
-        const data_products = await response_products.json();
-
-        if (
-          data_products.response &&
-          data_brands.response &&
-          data_categories.response
-        ) {
-          setCategories(data_categories.response);
-          setBrands(data_brands.response);
-          setProducts(data_products.response);
-          setLoading(false);
+        ]);
+  
+        const [dataCategories, dataProducts,dataBrand] = await Promise.all([
+          responseCategories.json(),
+          responseProducts.json(),
+          responseMarca.json()
+        ]);
+  
+        if (dataCategories.response && dataProducts.response && dataBrand.response) {
+          setCategories(dataCategories.response);
+          setProducts(dataProducts.response);
+          setBrands(dataBrand.response)
         }
       } catch (error) {
-        console.log('Error: ', error);
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
     };
-
+  
     fetchData();
   }, []);
+  
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -301,17 +304,17 @@ export default function Page() {
                           className='mb-4 text-lg'
                           style={{ fontFamily: 'Verdana, sans-serif' }}
                         >
-                          Descripción: {selectedProduct.Descripcion}
+                          Descripción: {selectedProduct.Descripcion ? selectedProduct.Descripcion : "Sin descripcion disponible"}
                         </p>
                         <table className='mb-4 w-full'>
                           <tbody>
                             <tr>
                               <td className='font-semibold'>Dimensiones:</td>
-                              <td>{selectedProduct.Dimensiones}</td>
+                              <td>{selectedProduct.Dimensiones ? selectedProduct.Dimensiones : "Sin Dimensiones disponibles"}</td>
                             </tr>
                             <tr>
                               <td className='font-semibold'>Peso:</td>
-                              <td>{selectedProduct.Peso}</td>
+                              <td>{selectedProduct.Peso ? selectedProduct.Peso : "Sin precio disponible"}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -319,7 +322,7 @@ export default function Page() {
                           className='mb-4 font-semibold text-lg'
                           style={{ fontFamily: 'Verdana, sans-serif' }}
                         >
-                          Precio: ${selectedProduct.Precio.toFixed(2)}
+                          Precio: ${selectedProduct.Precio ? selectedProduct.Precio.toFixed(2) : "No Disponible"}
                         </p>
                         <a
                           // whileHover={{ scale: 1.05 }}

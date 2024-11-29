@@ -1,7 +1,9 @@
+import { getFetchOptions } from "@/utils/cacheRevalidate";
 import { NextResponse } from "next/server";
 
 export async function GET(){
     try {
+        const additionalOptions = getFetchOptions()
 
         const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/CategoriasProductos`, {
             method: 'GET',
@@ -10,7 +12,9 @@ export async function GET(){
                 'Pragma': 'no-cache',
 
             },
-            cache: 'no-cache',
+            // cache: 'no-cache',
+            ...additionalOptions
+
         });
 
         if(!response.ok){
