@@ -1,8 +1,13 @@
 import * as motion from "framer-motion/client";
 
+const isSafari =
+  typeof window !== "undefined" &&
+  /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+const initialPath = { pathLength: isSafari ? 1 : 0 };
+
 const AnimatedLogo = ({ className = "" }) => {
   return (
-    <svg
+    <motion.svg
       id="ControlHidraulicoLogo"
       className={className}
       viewBox="0 0 51.5 38.0"
@@ -13,10 +18,17 @@ const AnimatedLogo = ({ className = "" }) => {
     >
       {/* Esfera */}
       <motion.path
-        initial={{
-          scale: 0,
-          rotate: -360,
-        }}
+        initial={
+          isSafari
+            ? {
+                scale: 1,
+                rotate: 0,
+              }
+            : {
+                scale: 0,
+                rotate: -360,
+              }
+        }
         whileInView={{
           scale: 1,
           rotate: 0,
@@ -29,15 +41,16 @@ const AnimatedLogo = ({ className = "" }) => {
           damping: 9,
         }}
         viewport={{ once: true, amount: 0.9 }}
-        id="red-sphere"
         fill="#FF1626"
+        className="border-2"
         stroke="#FF1626"
         strokeWidth="1"
         d="M21,7.1 a 1.03,1 0 0,0 0,24.4 a 1,1 0 0,0 0,-24.4 m 0.9,1.9 l 4,6.25 l -8.1,0 z"
       />
-      {/* Felcha */}
+
+      {/* Flecha */}
       <motion.path
-        initial={{ pathLength: 0 }}
+        initial={initialPath}
         transition={{ duration: 1, delay: 0.5 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, amount: 0.9 }}
@@ -47,17 +60,17 @@ const AnimatedLogo = ({ className = "" }) => {
       />
       {/* Letra C */}
       <motion.path
-        initial={{ pathLength: 0 }}
+        initial={initialPath}
         transition={{ duration: 1, delay: 0.5 }}
         whileInView={{ pathLength: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.5, margin: "20% 20% 20% 20%" }}
         id="letra-C"
         strokeWidth="3.6"
         d="M28.7,2.9 h-12 a 1,1.25 0 0,0 0,32 h12 h-12 a 1,1.1 0 0,1 0,-32"
       />
       {/* Texto H-O */}
       <motion.path
-        initial={{ pathLength: 0 }}
+        initial={initialPath}
         transition={{ duration: 2, delay: 0.5 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, amount: 0.7 }}
@@ -65,7 +78,7 @@ const AnimatedLogo = ({ className = "" }) => {
         strokeWidth="1.3"
         d="M33.4,26.8 V 36.8 M39.5,26.8 V 36.8 M32.8,31.6 H 40.1 M46.2,27.2 a 1,1.25 0 0,0 0,9.2 a 1,1.25 0 0,0 0,-9.2"
       />
-    </svg>
+    </motion.svg>
   );
 };
 
