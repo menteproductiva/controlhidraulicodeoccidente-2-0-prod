@@ -1,11 +1,11 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import ContactSection from '../sections/ContactSection/ContactSection';
-import TextParallaxContent from '@/components/TextParallaxContent/TextParallaxContext';
-import { FaWhatsapp } from 'react-icons/fa';
-import ChavoyaBannerSection from '../sections/ChavoyaBannerSection/ChavoyaBannerSection';
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import ContactSection from "../sections/ContactSection/ContactSection";
+import TextParallaxContent from "@/components/TextParallaxContent/TextParallaxContext";
+import { FaWhatsapp } from "react-icons/fa";
+import ChavoyaBannerSection from "../sections/ChavoyaBannerSection/ChavoyaBannerSection";
 
 interface CategoriesType {
   Nombre: string;
@@ -32,49 +32,52 @@ export default function Page() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<ProductsType | null>(
-    null,
+    null
   );
-  const [activeTab, setActiveTab] = useState('Categoría');
+  const [activeTab, setActiveTab] = useState("Categoría");
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState<CategoriesType[]>([]);
   const [brands, setBrands] = useState<BrandsType[]>([]);
   const [products, setProducts] = useState<ProductsType[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-  
-        // Fetch categories
-        const [responseCategories, responseProducts,responseMarca] = await Promise.all([
-          fetch('/api/categoriasProductos'),
-          fetch('/api/productos'),
-          fetch('/api/marca'),
 
-        ]);
-  
-        const [dataCategories, dataProducts,dataBrand] = await Promise.all([
+        // Fetch categories
+        const [responseCategories, responseProducts, responseMarca] =
+          await Promise.all([
+            fetch("/api/categoriasProductos"),
+            fetch("/api/productos"),
+            fetch("/api/marca"),
+          ]);
+
+        const [dataCategories, dataProducts, dataBrand] = await Promise.all([
           responseCategories.json(),
           responseProducts.json(),
-          responseMarca.json()
+          responseMarca.json(),
         ]);
-  
-        if (dataCategories.response && dataProducts.response && dataBrand.response) {
+
+        if (
+          dataCategories.response &&
+          dataProducts.response &&
+          dataBrand.response
+        ) {
           setCategories(dataCategories.response);
           setProducts(dataProducts.response);
-          setBrands(dataBrand.response)
+          setBrands(dataBrand.response);
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
     };
-  
+
     fetchData();
   }, []);
-  
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -84,7 +87,7 @@ export default function Page() {
     setSelectedCategories((prev) =>
       prev.includes(category)
         ? prev.filter((cat) => cat !== category)
-        : [...prev, category],
+        : [...prev, category]
     );
   };
 
@@ -92,7 +95,7 @@ export default function Page() {
     setSelectedBrands((prev) =>
       prev.includes(brand)
         ? prev.filter((br) => br !== brand)
-        : [...prev, brand],
+        : [...prev, brand]
     );
   };
 
@@ -111,29 +114,26 @@ export default function Page() {
   });
 
   return (
-    <div className='bg-white min-h-screen text-black'>
-      <div className='bg-white'>
+    <div className="bg-white min-h-screen text-black">
+      <div className="bg-white">
         <TextParallaxContent
-          imgUrl='/assets/imgAbout_Header.jpg'
-          heading='Productos Hidráulicos'
-          subheading='Para Optimizar tus Operaciones Industriales'
+          imgUrl="/assets/imgAbout_Header.jpg"
+          heading="Productos Hidráulicos"
+          subheading="Para Optimizar tus Operaciones Industriales"
         >
-          <section className='bg-gray-100 px-4 md:px-8 lg:px-16 py-12'>
-            <h2 className='mb-8 font-light text-[#E5202D] text-3xl text-center md:text-4xl'>
-              Motores Hidráulicos
-            </h2>
-            <div className='flex md:flex-row flex-col gap-8'>
+          <section className="bg-gray-100 px-4 md:px-8 lg:px-16 py-12">
+            <div className="flex md:flex-row flex-col gap-8">
               {/* Filters */}
-              <div className='md:w-1/4'>
-                <div className='bg-white shadow-lg p-6 rounded-lg'>
-                  <div className='flex mb-4'>
-                    {['Categoría', 'Marca', 'Nombre'].map((tab) => (
+              <div className="md:w-1/4">
+                <div className="bg-white shadow-lg p-6 rounded-lg">
+                  <div className="flex mb-4">
+                    {["Categoría", "Marca", "Nombre"].map((tab) => (
                       <button
                         key={tab}
                         className={`flex-1 py-2 px-4 text-center ${
                           activeTab === tab
-                            ? 'bg-[#2D3688] text-white'
-                            : 'bg-gray-200'
+                            ? "bg-[#2D3688] text-white"
+                            : "bg-gray-200"
                         }`}
                         onClick={() => setActiveTab(tab)}
                       >
@@ -141,75 +141,75 @@ export default function Page() {
                       </button>
                     ))}
                   </div>
-                  {activeTab === 'Categoría' && (
-                    <div className='space-y-2'>
+                  {activeTab === "Categoría" && (
+                    <div className="space-y-2">
                       {loading
                         ? Array(8)
                             .fill(0)
                             .map((_, index) => (
                               <div
                                 key={index}
-                                className='flex items-center space-x-2'
+                                className="flex items-center space-x-2"
                               >
-                                <input type='checkbox' className='rounded' />
+                                <input type="checkbox" className="rounded" />
                                 <label>Cargando...</label>
                               </div>
                             ))
                         : categories.map((category, index) => (
                             <div
                               key={index}
-                              className='flex items-center space-x-2'
+                              className="flex items-center space-x-2"
                             >
                               <input
-                                type='checkbox'
+                                type="checkbox"
                                 checked={selectedCategories.includes(
-                                  category.Nombre,
+                                  category.Nombre
                                 )}
                                 onChange={() =>
                                   handleCategoryChange(category.Nombre)
                                 }
-                                className='rounded'
+                                className="rounded"
                               />
                               <label>{category.Nombre}</label>
                             </div>
                           ))}
                     </div>
                   )}
-                  {activeTab === 'Marca' && (
-                    <div className='space-y-2'>
+                  {activeTab === "Marca" && (
+                    <div className="space-y-2">
                       {loading
                         ? Array(15)
                             .fill(0)
                             .map((_, index) => (
                               <div
                                 key={index}
-                                className='flex items-center space-x-2'
+                                className="flex items-center space-x-2"
                               >
-                                <input type='checkbox' className='rounded' />
+                                <input type="checkbox" className="rounded" />
                                 <label>Cargando</label>
                               </div>
                             ))
                         : brands.map((brand, index) => (
                             <div
                               key={index}
-                              className='flex items-center space-x-2'
+                              className="flex items-center space-x-2"
                             >
                               <input
-                                type='checkbox'
+                                type="checkbox"
                                 checked={selectedBrands.includes(brand.Nombre)}
                                 onChange={() => handleBrandChange(brand.Nombre)}
-                                className='rounded'
+                                className="rounded"
                               />
                               <label>{brand.Nombre}</label>
                             </div>
                           ))}
                     </div>
                   )}
-                  {activeTab === 'Nombre' && (
+                  {activeTab === "Nombre" && (
                     <input
-                      type='text'
-                      placeholder='Buscar por nombre'
-                      className='p-2 border rounded w-full'
+                      type="text"
+                      placeholder="Buscar por nombre"
+                      className="p-2 border rounded w-full"
                       value={searchTerm}
                       onChange={handleSearch}
                     />
@@ -218,15 +218,15 @@ export default function Page() {
               </div>
 
               {/* Product List */}
-              <div className='md:w-3/4'>
-                <div className='gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
+              <div className="md:w-3/4">
+                <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                   {loading
                     ? Array(15)
                         .fill(0)
                         .map((_, index) => (
                           <div
                             key={index}
-                            className='bg-white shadow-lg p-4 rounded-lg animate-pulse cursor-pointer'
+                            className="bg-white shadow-lg p-4 rounded-lg animate-pulse cursor-pointer"
                           >
                             {/* Loading State */}
                           </div>
@@ -236,33 +236,34 @@ export default function Page() {
                           key={index}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className='bg-white shadow-lg p-4 rounded-lg cursor-pointer'
+                          className="bg-white shadow-lg p-4 rounded-lg cursor-pointer"
                           onClick={() => setSelectedProduct(product)}
                         >
                           {/* Product Details */}
-                          <Image
-                            src={`${product.Imagen}`}
-                            alt={product.Nombre}
-                            width={200}
-                            height={200}
-                            className='mx-auto mb-4'
-                          />
-                          <p className='mb-1 text-[#2D3688] text-sm'>
+                          <div className="w-[200px] aspect-square mx-auto mb-4 overflow-hidden relative">
+                            <Image
+                              src={`${product.Imagen}`}
+                              alt={product.Nombre}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                          <p className="mb-1 text-[#2D3688] text-sm">
                             {product.Marca}
                           </p>
-                          <h3 className='mb-2 font-bold text-gray-900 text-xl'>
+                          <h3 className="mb-2 font-bold text-gray-900 text-xl">
                             {product.Nombre}
                           </h3>
-                          <div className='flex flex-row justify-center items-center w-full'>
+                          <div className="flex flex-row justify-center items-center w-full">
                             <a
-                              target='_blank'
+                              target="_blank"
                               href={`https://wa.me/523318937866?text=${encodeURIComponent(
-                                `Hola, estoy interesado en ${product.Nombre}`,
+                                `Hola, estoy interesado en ${product.Nombre}`
                               )}`}
-                              className='flex flex-col bg-green-500 hover:bg-green-600 py-2 rounded-lg w-1/2 font-bold text-center text-white transition-colors'
+                              className="flex flex-col bg-green-500 hover:bg-green-600 py-2 rounded-lg w-1/2 font-bold text-center text-white transition-colors"
                             >
-                              <div className='flex justify-center items-center'>
-                                <span className='mr-2'>COTIZAR</span>
+                              <div className="flex justify-center items-center">
+                                <span className="mr-2">COTIZAR</span>
                                 <FaWhatsapp />
                               </div>
                             </a>
@@ -276,76 +277,69 @@ export default function Page() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className='z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 p-4'
+                  className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 p-4"
                 >
                   <motion.div
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    className='bg-white p-6 rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto'
+                    className="bg-white p-6 rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto"
                   >
                     <h2
-                      className='mb-4 font-light text-2xl'
-                      style={{ fontFamily: 'Montserrat, sans-serif' }}
+                      className="mb-4 font-light text-2xl"
+                      style={{ fontFamily: "Montserrat, sans-serif" }}
                     >
                       {selectedProduct.Nombre}
                     </h2>
-                    <div className='gap-6 grid md:grid-cols-2'>
-                      <div>
+                    <div className="gap-6 grid md:grid-cols-2">
+                      <div className="w-[400px] aspect-square rounded-lg overflow-hidden relative">
                         <Image
                           src={`${selectedProduct.Imagen}`}
                           alt={selectedProduct.Nombre}
-                          width={400}
-                          height={400}
-                          className='rounded-lg'
+                          fill
+                          className="object-contain"
                         />
                       </div>
                       <div>
                         <p
-                          className='mb-4 text-lg'
-                          style={{ fontFamily: 'Verdana, sans-serif' }}
+                          className="mb-4 text-lg"
+                          style={{ fontFamily: "Verdana, sans-serif" }}
                         >
-                          Descripción: {selectedProduct.Descripcion ? selectedProduct.Descripcion : "Sin descripcion disponible"}
+                          Descripción:{" "}
+                          {selectedProduct.Descripcion
+                            ? selectedProduct.Descripcion
+                            : "Sin descripcion disponible"}
                         </p>
-                        <table className='mb-4 w-full'>
-                          <tbody>
-                            <tr>
-                              <td className='font-semibold'>Dimensiones:</td>
-                              <td>{selectedProduct.Dimensiones ? selectedProduct.Dimensiones : "Sin Dimensiones disponibles"}</td>
-                            </tr>
-                            <tr>
-                              <td className='font-semibold'>Peso:</td>
-                              <td>{selectedProduct.Peso ? selectedProduct.Peso : "Sin precio disponible"}</td>
-                            </tr>
-                          </tbody>
-                        </table>
+
                         <p
-                          className='mb-4 font-semibold text-lg'
-                          style={{ fontFamily: 'Verdana, sans-serif' }}
+                          className="mb-4 font-semibold text-lg"
+                          style={{ fontFamily: "Verdana, sans-serif" }}
                         >
-                          Precio: ${selectedProduct.Precio ? selectedProduct.Precio.toFixed(2) : "No Disponible"}
+                          {selectedProduct.Precio
+                            ? `USD $${selectedProduct.Precio.toFixed(2)}`
+                            : "No Disponible"}
                         </p>
                         <a
                           // whileHover={{ scale: 1.05 }}
                           // whileTap={{ scale: 0.95 }}
-                          target='_blank'
+                          target="_blank"
                           href={`${selectedProduct.Ficha}`}
-                          className='flex justify-center items-center bg-[#2D3688] mb-4 px-4 py-2 rounded-full text-white cursor-pointer'
+                          className="flex justify-center items-center bg-[#2D3688] mb-4 px-4 py-2 rounded-full text-white cursor-pointer"
                         >
                           {/* <Download className="mr-2" /> */}
                           Ver la ficha técnica
                         </a>
 
                         <a
-                          target='_blank'
+                          target="_blank"
                           href={`https://wa.me/523318937866?text=${encodeURIComponent(
-                            `Hola, estoy interesado en ${selectedProduct.Nombre}`,
+                            `Hola, estoy interesado en ${selectedProduct.Nombre}`
                           )}`}
                           // className='flex flex-col bg-green-500 hover:bg-green-600 py-2 rounded-lg w-1/2 font-bold text-center text-white transition-colors'
                         >
                           <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className='flex justify-center items-center bg-green-500 px-6 py-3 rounded-full w-full font-semibold text-lg text-white'
+                            className="flex justify-center items-center bg-green-500 px-6 py-3 rounded-full w-full font-semibold text-lg text-white"
                           >
                             {/* <WhatsApp className="mr-2" /> */}
                             Contactar via WhatsApp
@@ -354,7 +348,7 @@ export default function Page() {
                       </div>
                     </div>
                     <button
-                      className='top-4 right-4 absolute text-2xl'
+                      className="top-4 right-4 absolute text-2xl"
                       onClick={() => setSelectedProduct(null)}
                     >
                       &times;
